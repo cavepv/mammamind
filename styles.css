@@ -9,6 +9,7 @@
   --text-muted: #7a6a66;
 
   --accent: #c28f7a;
+  --accent-active: #f0b49c;
 
   --radius-xl: 35px;
   --radius-lg: 16px;
@@ -115,6 +116,11 @@ h2 {
   color: white;
 }
 
+.button.primary:active {
+  background-color: var(--primary-active);
+  transform: translateY(1px);
+}
+
 .button.secondary {
   background: transparent;
   border: 1px solid var(--accent);
@@ -130,7 +136,7 @@ section {
 .hero {
 
   /* Background image */
-  background-image: url("hero-bg.jpeg");
+  background-image: url("assets/images/hero-bg.jpeg");
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
