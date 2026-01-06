@@ -150,7 +150,7 @@ section {
 .hero {
 
   /* Background image */
-  background-image: url("assets/images/hero-bg.jpeg");
+  background-image: url("../assets/images/hero-bg.jpeg");
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;

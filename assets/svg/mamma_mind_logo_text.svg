@@ -2,7 +2,4 @@
   <text x="0" y="28" font-size="28" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-weight="300" fill="currentColor">
     Mamma Mind
   </text>
-
-  <!-- Soft accent dot -->
-  <circle cx="168" cy="10" r="3" fill="currentColor" opacity="0.6"></circle>
 </svg>
