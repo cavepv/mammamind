@@ -1,0 +1,44 @@
+.logo {
+  display: block;
+  height: auto;
+    color: var(--accent);
+    max-width: 180px;     /* mobile-safe */
+}
+
+@media (min-width: 768px) {
+  .logo {
+    max-width: 220px;
+  }
+}
+
+.logo-layout {
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;            /* space between symbol & text */
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.logo-symbol {
+  max-width: 40px;        /* icon size */
+  transform: scale(1.08);
+}
+
+.logo-text {
+  max-width: 140px;       /* wordmark size */
+}
+
+@media (min-width: 768px) {
+  .logo-layout {
+    gap: 0.75rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .logo-symbol {
+    max-width: 48px;
+  }
+
+  .logo-text {
+    max-width: 180px;
+  }
+}

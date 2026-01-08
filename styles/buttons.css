@@ -1,0 +1,27 @@
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1rem;
+  min-width: 200px;
+   text-align: center;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.button.primary:active {
+  background-color: var(--primary-active);
+  transform: translateY(1px);
+}
+
+.button.secondary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
