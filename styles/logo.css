@@ -1,7 +1,6 @@
-/* Mobile styling */
 .logo {
   display: block;
-  width: 20px;     /* actual size */
+  width: 100px;     /* actual size */
   height: auto;
   max-width: 100%;  /* safety */
 }
@@ -23,6 +22,7 @@
 
   .logo {
     width: 200px;
+    max-width: 100%;  /* safety */
   }
 }
 

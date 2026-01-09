@@ -20,6 +20,11 @@
   gap: var(--space-lg);
 }
 
+.sub-hero-layout {
+    display: grid;
+    gap: var(--space-lg);
+    margin-bottom: 20px;
+}
 .hero-button-mobile {
     text-align: center;
 }
