@@ -17,6 +17,7 @@
 
 .hero-layout {
   display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-lg);
 }
 
@@ -26,7 +27,8 @@
     margin-bottom: 20px;
 }
 .hero-button-mobile {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-text {
@@ -65,12 +67,6 @@
 .hero-image img {
   width: 100%;
   display: block;
-}
-
-@media (min-width: 768px) {
-  .hero-image {
-    max-width: 100%;
-  }
 }
 
 .hero::after {
