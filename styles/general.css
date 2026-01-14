@@ -3,10 +3,12 @@
   --bg-soft: #f3e6e1;
   --card-bg: #ffffff;
   --card-border-color: #b89061;
+  --footer-bg: #f9f1ed;
 
   --text-main: #3a2f2b;
   --text-main-h2: #262220;
   --text-muted: #7a6a66;
+  --text-white: #f0ede6;
 
   --accent: #c28f7a;
   --accent-active: #f0b49c;
@@ -38,6 +40,10 @@
 
 * {
   box-sizing: border-box;
+}
+
+main {
+  padding-bottom: var(--space-xl);
 }
 
 body {
@@ -105,7 +111,8 @@ h2 {
 }
 
 section {
-  margin-bottom: var(--space-l);
+  padding: var(--space-xl) 0;
+  margin: 0;
 }
 
 /* Audience */
@@ -187,14 +194,6 @@ summary {
     line-height: 1.5;
   cursor: pointer;
   font-weight: 500;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: var(--space-md);
-  font-size: 0.85rem;
-  color: var(--text-muted);
 }
 
 /* Responsive */
