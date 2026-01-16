@@ -19,6 +19,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
+  position: relative;
+  z-index: 2;
 }
 
 .sub-hero-layout {
@@ -68,6 +70,18 @@
 .hero-image img {
   width: 100%;
   display: block;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(243, 230, 225, 0.4),
+    rgba(243, 245, 225, 0.01)
+  );
+  z-index: 1;
 }
 
 .hero::after {

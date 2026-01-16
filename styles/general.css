@@ -104,6 +104,7 @@ h2 {
 }
 
 .lead {
+  text-align: center;
   font-size: var(--font-lead);
   margin-bottom: var(--space-md);
   color: var(--text-main-h2);
@@ -201,6 +202,15 @@ summary {
     margin-top: var(--space-xl);
   }
 
+.about-section {
+  padding-top: var(--space-lg);
+}
+
+.container > hr {
+  margin-bottom: var(--space-xs);
+}
+
+
 /* Responsive */
 @media (min-width: 768px) {
   .hero-layout,
@@ -221,7 +231,7 @@ summary {
   .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: var(--space-sm) var(--space-sm);
+    padding: var(--space-md) var(--space-md);
   }
 
   .lead {
@@ -234,5 +244,4 @@ summary {
     padding: var(--space-xl) 0;
     margin: 0;
   }
-
  }
