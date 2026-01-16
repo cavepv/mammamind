@@ -47,8 +47,15 @@
   border-color: var(--primary);
 }
 
-/* Button spacing */
+/* Button spacing – mobile */
 .form .button {
-  align-self: flex-start;
+  align-self: center;
   margin-top: var(--space-sm);
 }
+
+@media (min-width: 768px) {
+  .form .button {
+    align-self: flex-start;
+  }
+}
+

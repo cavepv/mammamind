@@ -108,7 +108,12 @@ h2 {
   font-size: var(--font-lead);
   margin-bottom: var(--space-md);
   color: var(--text-main-h2);
+  }
 
+  .lead-course-description {
+    font-size: var(--font-lead);
+    margin-bottom: var(--space-md);
+    color: var(--text-main-h2);
   }
 
 section {
@@ -214,10 +219,14 @@ summary {
 /* Responsive */
 @media (min-width: 768px) {
   .hero-layout,
-  .split-layout,
   .two-col {
     grid-template-columns: 1fr 1fr;
     align-items: center;
+  }
+
+  .split-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
   }
 
   .card {
