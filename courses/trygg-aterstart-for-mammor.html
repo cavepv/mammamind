@@ -139,16 +139,20 @@
                                 name="consent"
                                 required
                         >
-                        Jag godkänner
-                        <a href="/subpages/privacy.html" target="_blank" rel="noopener noreferrer">
+
+                        <span class="consent-text">
+                          Jag godkänner
+                          <a href="/subpages/privacy.html" target="_blank" rel="noopener noreferrer">
                             integritetspolicyn
-                        </a>
-                        och att mina uppgifter används för att hantera min intresseanmälan.
+                          </a>
+                          och att mina uppgifter används för att hantera min intresseanmälan.
+                        </span>
                     </label>
                 </div>
 
-                <button type="submit" class="button primary">
-                    Skicka intresseanmälan
+                <button class="button primary g-recaptcha" data-sitekey="6Lfv4U4sAAAAAD78hEZq2NxFOTIpaIpXUDKm8pnY"
+                        data-callback='onSubmit'
+                        data-action='submit'>Skicka intresseanmälan
                 </button>
 
                 <p class="form-note">

@@ -81,3 +81,20 @@
   }
 }
 
+/* Mobile-only fix for consent checkbox layout */
+@media (max-width: 767px) {
+  .checkbox-label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.6rem;
+    align-items: start;
+  }
+
+  .checkbox-label input {
+    margin-top: 0.25rem;
+  }
+
+  .consent-text {
+    line-height: 1.4;
+  }
+}
