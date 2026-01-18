@@ -6,6 +6,18 @@
     <title>MammaMind: Trygg träning för gravida & nyblivna mammor</title>
     <meta name="description" content="Trygg och anpassad träning för gravida och nyblivna mammor i Göteborg." />
     <link rel="icon" href="/assets/svg/favicon.svg" type="image/svg+xml" />
+    <meta
+            http-equiv="Content-Security-Policy"
+            content="
+    default-src 'self';
+    img-src 'self' https:;
+    style-src 'self' 'unsafe-inline';
+    form-action https://formspree.io;
+    base-uri 'self';
+    object-src 'none';
+  "
+    >
+
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/buttons.css" />
     <link rel="stylesheet" href="/styles/forms.css" />
