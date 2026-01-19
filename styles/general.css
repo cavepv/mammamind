@@ -132,6 +132,15 @@ section {
   gap: var(--space-sm);
 }
 
+.course-detail p,
+.course-detail ul {
+  font-size: var(--font-lead);
+  line-height: var(--lh-body);
+  color: var(--text-main-h2);
+  margin-bottom: var(--space-md);
+}
+
+
 
 
 .card,
