@@ -228,6 +228,39 @@ summary {
     text-align: center;
  }
 
+ .about .image {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .about .image-frame {
+   border-radius: 32px;
+   border: 1px solid var(--card-border-color);
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+ }
+
+.about .image-frame img {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  border-radius: 24px;
+}
+
+.about .split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .about .split-layout {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-lg);
+  }
+}
 
 
 /* Responsive */
