@@ -224,6 +224,11 @@ summary {
   margin-bottom: var(--space-xs);
 }
 
+ .courses h2 {
+    text-align: center;
+ }
+
+
 
 /* Responsive */
 @media (min-width: 768px) {
@@ -232,6 +237,10 @@ summary {
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
+
+  .courses h2 {
+      text-align: left;
+   }
 
   .split-layout {
     grid-template-columns: 1fr 1fr;
