@@ -26,9 +26,14 @@
   color: var(--accent);
 }
 
+.course-cta {
+    margin-top: 3rem;
+  }
+
 /* Mobile only: Center button in course cards */
 @media (max-width: 767px) {
   .course-cta {
     text-align: center;
+    margin-top: 3rem;
   }
 }
