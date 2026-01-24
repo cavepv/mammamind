@@ -15,6 +15,47 @@
   position: relative;
 }
 
+.hero-scroll-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.hero-scroll-indicator a {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.hero-scroll-indicator a:hover {
+  transform: translateY(2px);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.scroll-arrow {
+  width: 68px;
+  height: 68px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-scroll-indicator a {
+    animation: float 2.5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+}
+
 .hero-layout {
   display: grid;
   grid-template-columns: 1fr;
