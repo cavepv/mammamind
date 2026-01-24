@@ -3,8 +3,13 @@
   width: 100px;     /* actual size */
   height: auto;
   max-width: 100%;  /* safety */
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+.logo-link:hover .logo {
+  opacity: 0.3;
+  transform: translateY(1px);
+}
 
 .logo-layout {
   display: flex;
