@@ -15,6 +15,11 @@
   color: white;
 }
 
+.button:hover {
+  background-color: var(--primary-hover);
+  border: 1px solid var(--accent);
+ }
+
 .button.primary:active {
   background-color: var(--primary-active);
   transform: translateY(1px);
