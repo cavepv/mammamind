@@ -266,6 +266,16 @@ summary {
   }
 }
 
+details::details-content {
+  opacity: 0;
+  transition:
+    opacity 300ms,
+    content-visibility 300ms allow-discrete;
+}
+
+details[open]::details-content {
+  opacity: 1;
+}
 
 /* Responsive */
 @media (min-width: 768px) {
