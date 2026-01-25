@@ -238,6 +238,21 @@ summary {
    align-items: center;
  }
 
+ .image-thanks {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 80%;
+   margin: 0 auto;
+ }
+
+ .image-frame-thanks {
+   margin: var(--space-lg) 0;
+   border-radius: 32px;
+   border: 1px solid var(--card-border-color);
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+ }
+
  .about .image-frame {
    border-radius: 32px;
    border: 1px solid var(--card-border-color);
@@ -317,5 +332,12 @@ details[open]::details-content {
   section {
     padding: var(--space-xl) 0;
     margin: 0;
+  }
+
+  .image-thanks {
+    justify-content: flex-start;
+    margin-left: 0;
+    margin-right: auto;
+    width: 40%;
   }
  }
