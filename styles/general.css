@@ -284,8 +284,8 @@ summary {
 details::details-content {
   opacity: 0;
   transition:
-    opacity 300ms,
-    content-visibility 300ms allow-discrete;
+    opacity 400ms,
+    content-visibility 200ms allow-discrete;
 }
 
 details[open]::details-content {
