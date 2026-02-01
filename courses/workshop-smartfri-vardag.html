@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+            http-equiv="Content-Security-Policy"
+            content="
+                default-src 'self';
+                img-src 'self' https:;
+                style-src 'self' 'unsafe-inline';
+                form-action 'self' https://formspree.io;
+                base-uri 'self';
+                object-src 'none';"
+    >
+    <title>Trygg återstart för mammor | Mamma Mind</title>
+    <meta name="description" content="Trygg och inkännande återstart för nyblivna mammor i Göteborg.">
+    <link rel="icon" href="/assets/svg/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="/styles/hero.css"/>
+    <link rel="stylesheet" href="/styles/buttons.css">
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/logo.css">
+    <link rel="stylesheet" href="/styles/footer.css" />
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="container sub-hero-layout">
+        <a href="/index.html" class="logo-link">
+            <div class="hero-logo">
+                <img src="/assets/svg/mamma_mind_logo_combined.svg"
+                     alt="Mamma Mind"
+                     class="logo">
+            </div>
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="course-detail">
+        <div class="container narrow">
+
+            <h2><strong>Prova på workshop!</strong></h2>
+            <h2>Stark & smärtfri vardag<br>Fokus på Bäckenbotten & Andning</h2>
+
+            <p class="lead-course-description">
+                En förmiddag för dig som vill återfå kontakten med din kropp, hitta styrkan inifrån och njuta av en mysig stund med andra mammor i Eriksberg.
+            </p>
+            <p>
+                Känns kroppen inte helt som din efter förlossningen? Du kanske upplever en tyngdkänsla i underlivet, ryggvärk som inte ger med sig, eller att du läcker lite när du lyfter ditt barn, nyser eller skrattar.
+            </p>
+            <p>
+                Många mammor får höra att de ”bara ska knipa”, men sanningen är att isolerade knipövningar sällan är hela lösningen. För att din kropp ska kännas stark och hålla för vardagens alla lyft, behöver din bäckenbotten samarbeta med din andning och din djupa magmuskulatur.
+            </p>
+            <p>
+            Vad händer under workshopen?
+            </p>
+            <p>
+            Under 45 minuter guidar jag dig genom praktiska tekniker som du direkt kan använda i din vardag. Vi fokuserar på:
+            </p>
+
+            <ul class=course-description-meta">
+                <li>Samspelet mellan andning & bäckenbotten: Vi utforskar hur 360-andning fungerar och hur den naturligt avlastar din bäckenbotten.</li>
+                <li>Hitta rätt stöd: Hur du aktiverar din inre cylinder för att undvika smärta och läckage vid lyft och rörelse.</li>
+                <li>Avslappning vs. Styrka: Vi lär oss att en stark bäckenbotten också måste kunna slappna av – och hur du hittar balansen däremellan.</li>
+            </ul>
+            <p>
+                En stund för dig (och din bebis).
+                Efter träningen sänker vi tempot och avslutar med en gemensam fika.
+                Det här är din stund att få sitta ner, andas ut och dela erfarenheter med andra mammor i samma situation.
+            </p>
+            <p>
+                Bebisar är självklart varmt välkomna att vara med under workshopen!
+            </p>
+
+            <ul class="course-meta">
+                <li>Datum:<strong>&nbsp;10&nbsp;februari&nbsp;2026</strong></li>
+                <li>Tid kl.<strong>&nbsp;10:00– ca 11:30 (inkl. fika)</strong></li>
+                <li>Plats: <strong>Vila och värme yogastudio, Säterigatan 29 Eriksberg</strong></li>
+                <li><strong>Gratis prova på</strong> anmäl intresse - först till kvarn!</li>
+            </ul>
+
+            <p>
+                Vi håller gruppen liten (ca 10 platser) för att jag ska kunna ge dig personlig vägledning och svara på dina frågor.
+            </p>
+        </div>
+    </section>
+
+    <div class="container narrow">
+
+        <section class="interest-form">
+            <h2>Anmäl intresse</h2>
+
+            <form action="https://formspree.io/f/mlglbqlr"
+                  method="POST"
+                  class="form">
+
+                <input
+                        type="hidden"
+                        name="_next"
+                        value="https://www.mammamind.se/thanks.html"
+                >
+
+                <input type="text" name="_gotcha" style="display:none">
+
+                <div class="form-field">
+                    <label for="name">Namn</label>
+                    <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="email">E-post</label>
+                    <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Meddelande (valfritt)</label>
+                    <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                    ></textarea>
+                </div>
+
+                <div class="form-field form-consent">
+                    <label class="checkbox-label">
+                        <input
+                                type="checkbox"
+                                name="consent"
+                                required
+                        >
+
+                        <span class="consent-text">
+                          Jag godkänner
+                          <a href="/subpages/privacy.html" target="_blank" rel="noopener noreferrer">
+                            integritetspolicyn
+                          </a>
+                          och att mina uppgifter används för att hantera min intresseanmälan.
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="button primary">
+                    Skicka intresseanmälan
+                </button>
+
+                <p class="form-note">
+                    Vi använder dina uppgifter endast för att kontakta dig angående workshopen.
+                </p>
+            </form>
+        </section>
+    </div>
+</main>
+
+<footer class="footer-grid">
+    <a
+            href="https://www.instagram.com/tara_mammamind/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social social-link"
+            aria-label="Följ MammaMind på Instagram"
+    >
+        <img
+                src="/assets/svg/instagram-logo.svg"
+                alt=""
+                class="social-icon"
+        />
+        Instagram
+    </a>
+
+    <a href="mailto:info@mammamind.se" class="footer-email">
+        info@mammamind.se
+    </a>
+
+    <a href="/subpages/privacy.html" class="footer-privacy">
+        Integritetspolicy
+    </a>
+
+    <a href="/subpages/termnsnconditions.html" class="footer-terms">
+        Allmänna vilkor
+    </a>
+
+    <p class="footer-copy">
+        © 2026 · MammaMind
+    </p>
+</footer>
+</body>
+</html>
