@@ -9,6 +9,7 @@
   --text-main-h2: #262220;
   --text-muted: #7a6a66;
   --text-white: #f0ede6;
+  --text-completed: #de2214;
 
   --accent: #c28f7a;
   --accent-active: #f0b49c;
@@ -271,6 +272,13 @@ summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+}
+
+.workshop-complete-description{
+    font-size: var(--font-lead);
+    margin-bottom: var(--space-md);
+    color: var(--text-completed);
+    text-align: center;
 }
 
 @media (max-width: 767px) {
