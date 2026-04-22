@@ -108,18 +108,16 @@ h2 {
   font-weight: 400;
 }
 
-.lead {
-  text-align: center;
+.lead,
+.lead-course-description {
   font-size: var(--font-lead);
   margin-bottom: var(--space-md);
   color: var(--text-main-h2);
-  }
+}
 
-  .lead-course-description {
-    font-size: var(--font-lead);
-    margin-bottom: var(--space-md);
-    color: var(--text-main-h2);
-  }
+.lead {
+  text-align: center;
+}
 
 section {
   padding: var(--space-md) 0;
@@ -331,11 +329,6 @@ details[open]::details-content {
     padding: var(--space-md) var(--space-md);
   }
 
-  .lead {
-    font-size: var(--font-lead);
-    margin-bottom: var(--space-md);
-    color: var(--text-main-h2);
-  }
 
   section {
     padding: var(--space-xl) 0;

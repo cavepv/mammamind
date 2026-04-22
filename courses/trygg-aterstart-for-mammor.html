@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/styles/forms.css">
     <link rel="stylesheet" href="/styles/logo.css">
     <link rel="stylesheet" href="/styles/footer.css" />
+    <script src="/assets/js/includes.js" defer></script>
 </head>
 
 <body>
@@ -96,109 +97,11 @@
         <section class="interest-form">
             <h2>Anmäl intresse</h2>
             <p><em>ej bindande</em></p>
-
-            <form action="https://formspree.io/f/meeejgpw"
-                  method="POST"
-                  class="form">
-
-                <input
-                        type="hidden"
-                        name="_next"
-                        value="https://www.mammamind.se/thanks.html"
-                >
-
-                <input type="text" name="_gotcha" style="display:none">
-
-                <div class="form-field">
-                    <label for="name">Namn</label>
-                    <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            required
-                    >
-                </div>
-
-                <div class="form-field">
-                    <label for="email">E-post</label>
-                    <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                    >
-                </div>
-
-                <div class="form-field">
-                    <label for="message">Meddelande (valfritt)</label>
-                    <textarea
-                            id="message"
-                            name="message"
-                            rows="4"
-                    ></textarea>
-                </div>
-
-                <div class="form-field form-consent">
-                    <label class="checkbox-label">
-                        <input
-                                type="checkbox"
-                                name="consent"
-                                required
-                        >
-
-                        <span class="consent-text">
-                          Jag godkänner
-                          <a href="/subpages/privacy.html" target="_blank" rel="noopener noreferrer">
-                            integritetspolicyn
-                          </a>
-                          och att mina uppgifter används för att hantera min intresseanmälan.
-                        </span>
-                    </label>
-                </div>
-
-                <button type="submit" class="button primary">
-                    Skicka intresseanmälan
-                </button>
-
-                <p class="form-note">
-                    Vi använder dina uppgifter endast för att kontakta dig angående kursen.
-                </p>
-            </form>
+            <div data-include="form" data-endpoint="https://formspree.io/f/meeejgpw" data-note="kursen"></div>
         </section>
     </div>
 </main>
 
-<footer class="footer-grid">
-    <a
-            href="https://www.instagram.com/tara_mammamind/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-social social-link"
-            aria-label="Följ MammaMind på Instagram"
-    >
-        <img
-                src="/assets/svg/instagram-logo.svg"
-                alt=""
-                class="social-icon"
-        />
-        Instagram
-    </a>
-
-    <a href="mailto:info@mammamind.se" class="footer-email">
-        info@mammamind.se
-    </a>
-
-    <a href="/subpages/privacy.html" class="footer-privacy">
-        Integritetspolicy
-    </a>
-
-    <a href="/subpages/termnsnconditions.html" class="footer-terms">
-        Allmänna vilkor
-    </a>
-
-    <p class="footer-copy">
-        © 2026 · MammaMind
-    </p>
-</footer>
+<div data-include="footer"></div>
 </body>
 </html>
