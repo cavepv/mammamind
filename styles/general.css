@@ -389,3 +389,7 @@ details[open]::details-content {
   margin-top: calc(var(--space-xs) * -0.5);
   margin-bottom: var(--space-md);
 }
+
+.section-status-note--ongoing {
+  color: #4caf7d;
+}
