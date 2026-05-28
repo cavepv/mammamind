@@ -9,7 +9,8 @@
   --text-main-h2: #262220;
   --text-muted: #7a6a66;
   --text-white: #f0ede6;
-  --text-completed: #de2214;
+  --text-completed: #bd2424;
+  --text-ongoing: #107542;
 
   --accent: #c28f7a;
   --accent-active: #f0b49c;
@@ -342,3 +343,49 @@ details[open]::details-content {
     width: 40%;
   }
  }
+/* Section status indicators */
+.section--ongoing,
+.section--completed {
+  position: relative;
+}
+
+.section--ongoing::before,
+.section--completed::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.section--ongoing {
+  background: linear-gradient(to right, rgba(76, 175, 125, 0.06), transparent 40%);
+}
+
+.section--ongoing::before {
+  background: linear-gradient(to bottom, transparent, #4caf7d 20%, #4caf7d 80%, transparent);
+}
+
+.section--completed {
+  background: linear-gradient(to right, rgba(222, 34, 20, 0.04), transparent 40%);
+}
+
+.section--completed::before {
+  background: linear-gradient(to bottom, transparent, var(--text-completed) 20%, var(--text-completed) 80%, transparent);
+}
+
+.section--completed .course-list,
+.section--completed .course-card,
+.section--completed .course-meta,
+.section--completed .course-cta {
+  opacity: 0.65;
+  filter: grayscale(40%);
+}
+
+.section-status-note {
+  font-size: var(--font-lead);
+  color: var(--text-completed);
+  margin-top: calc(var(--space-xs) * -0.5);
+  margin-bottom: var(--space-md);
+}
