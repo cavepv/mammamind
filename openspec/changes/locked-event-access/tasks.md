@@ -4,7 +4,7 @@
 
 ## Phase 1 — Supabase Setup
 
-- [ ] Create Supabase project at supabase.com, store project URL + anon key + service role key in `.env.local` (gitignored). Verify: project accessible, keys valid.
+- [x] Create Supabase project at supabase.com, store project URL + anon key + service role key in `.env.local` (gitignored). Verify: project accessible, keys valid.
 - [x] Create DB migration: `events`, `access_keys`, `purchases` tables per design.md schema. Add RLS: anon SELECT on events; anon SELECT only key/event_id/expires_at on access_keys; no anon access to purchases. Verify: tables exist, RLS blocks email read from access_keys.
 - [ ] Seed first event row for "Trygg återstart efter graviditet" with placeholder stripe_price_id. Verify: SELECT from events returns row.
 
