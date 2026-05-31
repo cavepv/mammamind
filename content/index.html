@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MammaMind – Ditt innehåll</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/assets/svg/favicon.svg" type="image/svg+xml" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' https:;
+      style-src 'self' 'unsafe-inline';
+      connect-src https://YOUR_SUPABASE_PROJECT_REF.supabase.co;
+      base-uri 'self';
+      object-src 'none';
+    "
+  >
+  <link rel="stylesheet" href="/styles/general.css" />
+  <link rel="stylesheet" href="/styles/buttons.css" />
+  <link rel="stylesheet" href="/styles/hero.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <script src="/assets/js/includes.js" defer></script>
+  <style>
+    .content-state {
+      text-align: center;
+      padding: var(--space-xl) var(--space-md);
+    }
+    .content-state h1 {
+      margin-bottom: var(--space-md);
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--bg-soft);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto var(--space-md);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .event-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .event-content h1 {
+      margin-bottom: var(--space-sm);
+    }
+    .event-content .cta {
+      margin-top: var(--space-lg);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container sub-hero-layout">
+    <a href="/index.html" class="logo-link">
+      <div class="hero-logo">
+        <img src="/assets/svg/mamma_mind_logo_combined.svg" alt="Mamma Mind" class="logo">
+      </div>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="container narrow">
+
+    <!-- Loading -->
+    <div id="state-loading" class="content-state">
+      <div class="spinner"></div>
+      <p>Hämtar ditt innehåll…</p>
+    </div>
+
+    <!-- Valid -->
+    <div id="state-valid" class="content-state" hidden>
+      <div class="event-content">
+        <h1 id="event-title"></h1>
+        <p id="event-description"></p>
+        <div class="cta">
+          <a id="event-link" href="#" class="button primary" target="_blank" rel="noopener noreferrer">
+            Gå till kursen
+          </a>
+        </div>
+        <p style="margin-top: var(--space-lg); text-align: center; font-size: var(--font-small); color: var(--text-muted);">
+          Frågor? Kontakta oss på <a href="mailto:info@mammamind.se">info@mammamind.se</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Invalid / expired -->
+    <div id="state-invalid" class="content-state" hidden>
+      <h1>Länken är ogiltig</h1>
+      <p id="invalid-message">Länken du använde är ogiltig eller har upphört att gälla.</p>
+      <p>Kontakta oss på <a href="mailto:info@mammamind.se">info@mammamind.se</a> om du tror att något gått fel.</p>
+      <div style="margin-top: var(--space-lg);">
+        <a href="/index.html" class="button primary">Tillbaka till startsidan</a>
+      </div>
+    </div>
+
+    <!-- No key -->
+    <div id="state-no-key" class="content-state" hidden>
+      <h1>Ingen åtkomstnyckel</h1>
+      <p>Ingen åtkomstnyckel hittades i länken. Kontrollera att du använt den fullständiga länken från ditt bekräftelsemail.</p>
+      <div style="margin-top: var(--space-lg);">
+        <a href="/index.html" class="button primary">Tillbaka till startsidan</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div data-include="footer"></div>
+
+<script>
+  const SUPABASE_FUNCTION_URL = 'https://YOUR_SUPABASE_PROJECT_REF.supabase.co/functions/v1/verify-key'
+
+  function showState(id) {
+    ['state-loading', 'state-valid', 'state-invalid', 'state-no-key'].forEach(s => {
+      document.getElementById(s).hidden = s !== id
+    })
+  }
+
+  async function init() {
+    const params = new URLSearchParams(window.location.search)
+    const key = params.get('key')
+
+    if (!key) {
+      showState('state-no-key')
+      return
+    }
+
+    try {
+      const res = await fetch(SUPABASE_FUNCTION_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key }),
+      })
+      const data = await res.json()
+
+      if (!data.valid) {
+        const msg = data.reason === 'expired'
+          ? 'Länken har upphört att gälla.'
+          : 'Länken du använde är ogiltig.'
+        document.getElementById('invalid-message').textContent = msg
+        showState('state-invalid')
+        return
+      }
+
+      document.getElementById('event-title').textContent = data.event.title ?? ''
+      document.getElementById('event-description').textContent = data.event.description ?? ''
+      const link = document.getElementById('event-link')
+      link.href = data.event.content_url ?? '#'
+      showState('state-valid')
+
+    } catch (err) {
+      console.error(err)
+      document.getElementById('invalid-message').textContent = 'Något gick fel. Försök igen om en stund.'
+      showState('state-invalid')
+    }
+  }
+
+  init()
+</script>
+
+</body>
+</html>

@@ -10,6 +10,7 @@
                 img-src 'self' https:;
                 style-src 'self' 'unsafe-inline';
                 form-action 'self' https://formspree.io;
+    connect-src https://YOUR_SUPABASE_PROJECT_REF.supabase.co;
                 base-uri 'self';
                 object-src 'none';"
     >
@@ -89,6 +90,16 @@
                 Pris:<strong><em>&nbsp;899&nbsp;kr</em></strong>
                 Platserna är begränsade för att kunna ge varje mamma en trygg och personlig upplevelse.
             </p>
+
+            <div class="contact-button">
+              <button
+                id="buy-btn"
+                class="button primary"
+                data-event-id="YOUR_EVENT_UUID_HERE"
+              >
+                Köp plats – 899 kr
+              </button>
+            </div>
         </div>
     </section>
 
@@ -103,5 +114,30 @@
 </main>
 
 <div data-include="footer"></div>
+
+<script>
+  const CHECKOUT_URL = 'https://YOUR_SUPABASE_PROJECT_REF.supabase.co/functions/v1/create-checkout-session'
+  document.getElementById('buy-btn').addEventListener('click', async function () {
+    this.disabled = true
+    this.textContent = 'Laddar…'
+    try {
+      const res = await fetch(CHECKOUT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_id: this.dataset.eventId,
+          success_url: 'https://www.mammamind.se/subpages/thanks.html',
+          cancel_url: window.location.href,
+        }),
+      })
+      const { url } = await res.json()
+      if (url) window.location.href = url
+    } catch {
+      alert('Något gick fel. Försök igen eller kontakta info@mammamind.se')
+      this.disabled = false
+      this.textContent = 'Köp plats – 899 kr'
+    }
+  })
+</script>
 </body>
 </html>

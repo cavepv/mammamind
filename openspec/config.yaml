@@ -1,20 +1,24 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Stack: static HTML/CSS/JS on GitHub Pages (mammamind.se)
+  Backend: Supabase (Postgres + Edge Functions, Deno)
+  Payments: Stripe (hosted Checkout, webhooks)
+  Email: Resend (sending from info@mammamind.se)
+  Domain host: one.com
+  Styling: vanilla CSS, design tokens in styles/general.css
+  No build step, no framework, no npm. Plain files.
+  Language: Swedish (UI text), English (code + comments)
+  Conventional commits. Pre-commit review required (see rules).
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  tasks:
+    - Break tasks into independently verifiable steps
+    - Every task must include a "Verify" criterion
+  design:
+    - Include data model tables for any DB changes
+    - Include security considerations section
+  pre-commit:
+    - Before every commit, run caveman-review with claude-opus-4.6
+    - Before every commit, run caveman-review with gpt-5.3-codex
+    - Do not push until both reviews are addressed or explicitly dismissed
