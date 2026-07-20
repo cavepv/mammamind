@@ -37,46 +37,40 @@ This feature closes the gap between interest → payment → access, enabling Ta
 - **Hosting**: GitHub Pages (unchanged)
 - **Content delivery**: Single `/content/index.html` page, JS validates key against Supabase Edge Function, renders event data dynamically
 
-## Resume Status (2026-05-31)
+## Resume Status (2026-06-16)
 
 ### Completed
 - Supabase project live: `mkpqkcrvtlwobbevwcrg.supabase.co`
-- DB schema deployed + verified (events, access_keys, purchases, RLS, grants)
-- All 4 Edge Functions deployed + verified (verify-key public/no-auth, others service-role)
+- DB schema deployed + verified (events, access_keys, purchases, RLS, grants — incl. service_role grants fix)
+- All 4 Edge Functions deployed + verified (verify-key/create-checkout-session public no-verify-jwt, create-key/stripe-webhook service-role)
 - `content/index.html` built (4 render states)
-- `courses/trygg-aterstart-for-mammor.html` — Köp plats button added
+- `courses/trygg-aterstart-for-mammor.html` — Köp plats button added, real event UUID wired in (`ba96212d-c9d6-466b-95a2-6cac56e4b81c`)
 - `scripts/invite.js` — invite CLI tool
-- Pre-commit review done (claude-opus-4.6 + gpt-5.3-codex), all findings fixed
-- Branch: `feat/locked-event-access` pushed, `main` untouched
+- Event row seeded: "Trygg återstart efter graviditet", 899 SEK, content_url = Google Drive folder, `stripe_price_id=price_1Tj3PW1mtU9Z73ip25cRut4D`
+- Stripe account created, product + price created
+- `create-checkout-session` 500 bug root-caused + fixed: STRIPE_SECRET_KEY set in Supabase secrets was invalid; user re-set it with a verified copy from Stripe dashboard. Verified via curl → returns real Stripe Checkout URL (HTTP 200).
+- Defensive `.trim()` added on STRIPE_SECRET_KEY/STRIPE_WEBHOOK_SECRET reads (create-checkout-session, stripe-webhook) to guard against whitespace issues
+- Pre-commit review done (claude-opus-4.6 + gpt-5.3-codex) on checkout fix, no issues found
+- Branch: `feat/locked-event-access`, `main` untouched
 
 ### Blocked on (needs human action)
-1. **Stripe** — account not yet created. Steps:
-   - Sign up: https://dashboard.stripe.com/register (country: Sweden)
-   - Create product: "Trygg återstart efter graviditet", 899 SEK one-time → copy `price_id`
-   - Get secret key: `sk_test_...`
-   - Create webhook → `https://mkpqkcrvtlwobbevwcrg.supabase.co/functions/v1/stripe-webhook`, event: `checkout.session.completed` → copy `whsec_...`
-   - Run: `supabase secrets set STRIPE_SECRET_KEY=sk_test_... STRIPE_WEBHOOK_SECRET=whsec_...`
+1. **Stripe webhook** — not yet configured. Steps:
+   - Stripe Dashboard → Developers → Webhooks → Add endpoint
+   - URL: `https://mkpqkcrvtlwobbevwcrg.supabase.co/functions/v1/stripe-webhook`
+   - Event: `checkout.session.completed`
+   - Copy signing secret → `supabase secrets set STRIPE_WEBHOOK_SECRET=whsec_...`
 
-2. **Seed event row** — needs Stripe `price_id` first, then:
-   ```sql
-   INSERT INTO events (title, description, content_url, starts_at, ends_at, price_sek, stripe_price_id)
-   VALUES ('Trygg återstart efter graviditet', '...', 'ZOOM_LINK_HERE', '2026-05-06', '2026-06-10', 89900, 'price_...');
-   ```
-   Copy the returned UUID → replace `YOUR_EVENT_UUID_HERE` in `courses/trygg-aterstart-for-mammor.html`
-
-3. **Resend + DNS** — account not yet created. Steps:
+2. **Resend + DNS** — account not yet created. Steps:
    - Sign up: https://resend.com
    - Add domain `mammamind.se` → get DKIM TXT record
    - Add DKIM + update SPF at one.com DNS panel
    - Run: `supabase secrets set RESEND_API_KEY=re_...`
 
 ### Next session: start here
-1. Create Stripe account (steps above)
-2. Seed event row with real price_id + get event UUID
-3. Update `YOUR_EVENT_UUID_HERE` in course page
-4. Set up Resend + DNS
-5. E2E test (Task 8.1)
-6. Go live (Task 8.3)
+1. Set up Stripe webhook + signing secret (steps above)
+2. Set up Resend + DNS, get real API key
+3. E2E test in Stripe test mode: purchase → email received → content page shows correct event (Task 8.1)
+4. Go live: switch Stripe to live mode, final smoke test (Task 8.3)
 
 
 

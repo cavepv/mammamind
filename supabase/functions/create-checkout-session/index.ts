@@ -47,22 +47,27 @@ serve(async (req) => {
     })
   }
 
-  const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY')!, {
+  const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY')!.trim(), {
     apiVersion: '2023-10-16',
     httpClient: Stripe.createFetchHttpClient(),
   })
 
-  const session = await stripe.checkout.sessions.create({
-    mode: 'payment',
-    line_items: [{ price: event.stripe_price_id, quantity: 1 }],
-    customer_email: undefined, // Stripe collects email during checkout
-    collect_phone_number: false,
-    metadata: { event_id },
-    success_url,
-    cancel_url,
-  })
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      line_items: [{ price: event.stripe_price_id, quantity: 1 }],
+      metadata: { event_id },
+      success_url,
+      cancel_url,
+    })
 
-  return new Response(JSON.stringify({ url: session.url }), {
-    headers: corsHeaders,
-  })
+    return new Response(JSON.stringify({ url: session.url }), {
+      headers: corsHeaders,
+    })
+  } catch (err) {
+    console.error('Stripe checkout session creation failed', err)
+    return new Response(JSON.stringify({ error: 'Checkout session creation failed' }), {
+      headers: corsHeaders, status: 500,
+    })
+  }
 })

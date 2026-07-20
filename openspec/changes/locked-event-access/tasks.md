@@ -6,11 +6,11 @@
 
 - [x] Create Supabase project at supabase.com, store project URL + anon key + service role key in `.env.local` (gitignored). Verify: project accessible, keys valid.
 - [x] Create DB migration: `events`, `access_keys`, `purchases` tables per design.md schema. Add RLS: anon SELECT on events; anon SELECT only key/event_id/expires_at on access_keys; no anon access to purchases. Verify: tables exist, RLS blocks email read from access_keys.
-- [ ] Seed first event row for "Trygg återstart efter graviditet" with placeholder stripe_price_id. Verify: SELECT from events returns row.
+- [x] Seed first event row for "Trygg återstart efter graviditet" with placeholder stripe_price_id. Verify: SELECT from events returns row. (id=ba96212d-c9d6-466b-95a2-6cac56e4b81c)
 
 ## Phase 2 — Stripe Setup
 
-- [ ] Create Stripe product "Trygg återstart efter graviditet", price 89900 öre (899 SEK) one-time. Note price_id. Update events row. Verify: product visible in Stripe dashboard.
+- [x] Create Stripe product "Trygg återstart efter graviditet", price 89900 öre (899 SEK) one-time. Note price_id. Update events row. Verify: product visible in Stripe dashboard. (price_1Tj3PW1mtU9Z73ip25cRut4D)
 - [ ] Add Stripe webhook endpoint pointing to stripe-webhook Edge Function URL, event: checkout.session.completed. Note signing secret. Verify: test event delivered in Stripe dashboard.
 
 ## Phase 3 — Resend + DNS Setup

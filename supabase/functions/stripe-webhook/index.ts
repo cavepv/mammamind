@@ -9,7 +9,7 @@ serve(async (req) => {
   }
 
   const body = await req.text()
-  const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY')!, {
+  const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY')!.trim(), {
     apiVersion: '2023-10-16',
     httpClient: Stripe.createFetchHttpClient(),
   })
@@ -19,7 +19,7 @@ serve(async (req) => {
     event = await stripe.webhooks.constructEventAsync(
       body,
       signature,
-      Deno.env.get('STRIPE_WEBHOOK_SECRET')!,
+      Deno.env.get('STRIPE_WEBHOOK_SECRET')!.trim(),
     )
   } catch (err) {
     console.error('Webhook signature verification failed', err)
