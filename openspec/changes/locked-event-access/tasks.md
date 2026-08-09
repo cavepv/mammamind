@@ -15,8 +15,8 @@
 
 ## Phase 3 — Resend + DNS Setup
 
-- [ ] Create Resend account, add domain mammamind.se. Verify: domain added, DKIM record value available.
-- [ ] Add DKIM TXT record and update SPF TXT record at one.com DNS panel. Verify: Resend dashboard shows domain as verified.
+- [x] Create Resend account, add domain mammamind.se. Verify: domain added, DKIM record value available.
+- [x] Add DKIM TXT record and update SPF TXT record at one.com DNS panel. Verify: Resend dashboard shows domain as verified.
 
 ## Phase 4 — Edge Functions
 
@@ -40,6 +40,7 @@
 
 ## Phase 8 — End-to-End + Review
 
-- [ ] Full E2E test in Stripe test mode: purchase → email → content page; expired key → error; invalid key → error; invite script → email → content page.
-- [ ] Pre-commit dual-model review: run caveman-review with claude-opus-4.6 AND gpt-5.3-codex, address or dismiss all findings.
+- [x] Full E2E test in Stripe test mode: purchase → email → content page. Verified working end-to-end.
+- [ ] Additional E2E checks: expired key → error; invalid key → error; invite script → email → content page.
+- [x] Pre-commit dual-model review: run caveman-review with claude-opus-4.6 AND gpt-5.3-codex, address or dismiss all findings.
 - [ ] Go live: switch Stripe to live mode, verify webhook, deploy, smoke test with real purchase.
