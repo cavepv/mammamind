@@ -37,44 +37,39 @@ This feature closes the gap between interest → payment → access, enabling Ta
 - **Hosting**: GitHub Pages (unchanged)
 - **Content delivery**: Single `/content/index.html` page, JS validates key against Supabase Edge Function, renders event data dynamically
 
-## Resume Status (2026-06-16)
+## Resume Status (2026-08-09)
 
-### Completed
+### Completed — full purchase flow working E2E
 - Supabase project live: `mkpqkcrvtlwobbevwcrg.supabase.co`
 - DB schema deployed + verified (events, access_keys, purchases, RLS, grants — incl. service_role grants fix)
 - All 4 Edge Functions deployed + verified (verify-key/create-checkout-session public no-verify-jwt, create-key/stripe-webhook service-role)
 - `content/index.html` built (4 render states)
 - `courses/trygg-aterstart-for-mammor.html` — Köp plats button added, real event UUID wired in (`ba96212d-c9d6-466b-95a2-6cac56e4b81c`)
-- `scripts/invite.js` — invite CLI tool
+- `scripts/invite.js` — invite CLI tool (not yet run/tested)
 - Event row seeded: "Trygg återstart efter graviditet", 899 SEK, content_url = Google Drive folder, `stripe_price_id=price_1Tj3PW1mtU9Z73ip25cRut4D`
-- Stripe account created, product + price created
-- `create-checkout-session` 500 bug root-caused + fixed: STRIPE_SECRET_KEY set in Supabase secrets was invalid; user re-set it with a verified copy from Stripe dashboard. Verified via curl → returns real Stripe Checkout URL (HTTP 200).
-- Defensive `.trim()` added on STRIPE_SECRET_KEY/STRIPE_WEBHOOK_SECRET reads (create-checkout-session, stripe-webhook) to guard against whitespace issues
-- Pre-commit review done (claude-opus-4.6 + gpt-5.3-codex) on checkout fix, no issues found
-- Branch: `feat/locked-event-access`, `main` untouched
+- Stripe account, product/price, and webhook all configured. `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` set in Supabase secrets.
+- Resend account created, domain `mammamind.se` verified (DKIM/SPF at one.com), `RESEND_API_KEY` set in Supabase secrets.
+- Fixed real bug: CSP `script-src` missing on `content/index.html` + course page → inline buy-button/verify-key scripts were silently blocked. Added `script-src 'self' 'unsafe-inline'`. Reviewed (claude-opus-4.6 + gpt-5.3-codex), no issues.
+- **Full E2E test passed on localhost:8000**: clicked Köp plats → Stripe test checkout (card 4242...) → redirected to thanks.html → webhook fired → `purchases` + `access_keys` rows created → Resend email received with content link → clicked link → `content/index.html?key=...` verified key → rendered correct event title/description → "Gå till kursen" link → opened real Google Drive folder correctly.
+- Pre-commit dual-model review done on all commits this session, no blocking issues.
+- Branch: `feat/locked-event-access` (head `837b742`), pushed. `main` untouched.
 
-### Blocked on (needs human action)
-1. **Stripe webhook** — not yet configured. Steps:
-   - Stripe Dashboard → Developers → Webhooks → Add endpoint
-   - URL: `https://mkpqkcrvtlwobbevwcrg.supabase.co/functions/v1/stripe-webhook`
-   - Event: `checkout.session.completed`
-   - Copy signing secret → `supabase secrets set STRIPE_WEBHOOK_SECRET=whsec_...`
+### Known temp state (was localhost-only during testing, already reverted)
+- `verify-key` and `create-checkout-session` CORS/origin allowlists were temporarily pointed at `http://localhost:8000` for local testing, then reverted back to `https://www.mammamind.se` and redeployed. Confirmed clean via `git diff` before last push — no localhost values left in committed code.
 
-2. **Resend + DNS** — account not yet created. Steps:
-   - Sign up: https://resend.com
-   - Add domain `mammamind.se` → get DKIM TXT record
-   - Add DKIM + update SPF at one.com DNS panel
-   - Run: `supabase secrets set RESEND_API_KEY=re_...`
+### Not yet done
+1. **Error-state E2E tests** — expired key → error page; invalid/garbage key → error page. Logic exists in `content/index.html` (4 render states) but not manually re-verified since last full rebuild.
+2. **Invite script test** — `node scripts/invite.js <event_id> <email>` never run. Should create access_keys row + send email without a Stripe purchase.
+3. **Go live** — switch Stripe from test mode to live mode: new live product/price, new live webhook + signing secret, new live secret key, re-test with a real (or minimal real) purchase before public launch.
+4. **Merge decision** — user explicitly wants to hold off on merging `feat/locked-event-access` into `main` and going live. Main will receive separate UI-only updates in the meantime (unrelated to this feature). **Do not merge until user explicitly asks.**
+
+### Pause note (2026-08-09)
+User is pausing this branch for ~1 week to do UI updates directly on `main`. Feature branch is stable, all secrets set, full purchase flow verified working. Nothing time-sensitive is blocking — safe to leave as-is. When resuming: rebase/merge `main`'s UI changes into this branch if needed before continuing (check for conflicts in shared files like `courses/trygg-aterstart-for-mammor.html`, CSS, partials).
 
 ### Next session: start here
-1. Set up Stripe webhook + signing secret (steps above)
-2. Set up Resend + DNS, get real API key
-3. E2E test in Stripe test mode: purchase → email received → content page shows correct event (Task 8.1)
-4. Go live: switch Stripe to live mode, final smoke test (Task 8.3)
+1. Confirm branch untouched, diff clean (`git status`, `git log`)
+2. Run error-state tests (expired/invalid key) — no new setup needed, just visit content page with bad key values
+3. Run `scripts/invite.js` once end-to-end
+4. When user gives go-ahead: switch Stripe to live mode, final smoke test, then merge to `main`
 
 
-
-1. A user who completes Stripe checkout receives an email with a working key URL within 60 seconds
-2. Visiting `/content?key=<valid>` renders the event content page
-3. Visiting `/content?key=<expired>` or `/content?key=<invalid>` shows an error state
-4. Tara can invite a user by running a single script with email + event ID
