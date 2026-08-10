@@ -1,17 +1,11 @@
 /* Hero */
 .hero {
 
-  /* Background image */
-  background-image: url("/assets/images/hero-bg.jpeg");
-  background-size: cover;
-  background-position: right;
-  background-repeat: no-repeat;
-
   /* Mobile-first spacing */
   padding: clamp(0rem, 8vw, 7rem) 0;
 
   /* Fallback color while image loads */
-  background-color: var(--bg-soft);
+  background-color: var(--bg-main);
   position: relative;
 }
 
@@ -85,7 +79,12 @@
 .hero-text h1 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 4rem;
-  text-align: center;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.accent-word {
+  color: var(--accent);
 }
 
 .hero-text h1,

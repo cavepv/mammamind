@@ -31,6 +31,57 @@
   color: var(--accent);
 }
 
+.community-box {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  background: var(--bg-main);
+  border: 1px solid #b76e4d;
+  border-radius: 12px;
+  padding: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.community-box-heart {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.community-box-heart svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #b76e4d;
+}
+
+.community-box-title {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.community-box-text {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #b76e4d;
+  color: white;
+  font-weight: 600;
+}
+
+.hero-cta-heart {
+  width: 1rem;
+  height: 1rem;
+}
+
 .course-cta {
     margin-top: 3rem;
   }
