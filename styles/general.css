@@ -14,6 +14,7 @@
 
   --accent: #c28f7a;
   --accent-active: #f0b49c;
+  --accent-text: #8a5a44;
 
   --radius-xl: 35px;
   --radius-lg: 16px;
@@ -102,7 +103,7 @@ hr::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--bg-main);
+  background: var(--section-bg, var(--bg-main));
   color: var(--accent);
   padding: 0 var(--space-sm);
   font-size: 1rem;
@@ -143,9 +144,9 @@ section {
   margin: 0;
 }
 
-/* Audience */
-.audience {
-  background: var(--bg-main);
+.community {
+  background: var(--bg-soft);
+  --section-bg: var(--bg-soft);
 }
 
 .card-grid {
@@ -176,17 +177,169 @@ section {
 
 }
 
-
-/* Split layout */
-.split-layout {
-  display: grid;
-  gap: var(--space-lg);
+.reviews {
+  background: var(--bg-main);
+  text-align: center;
 }
 
-.how-it-works-step {
+.divider-soft {
+  background: var(--bg-soft);
+  box-shadow: 0 0 0 100vw var(--bg-soft);
+  clip-path: inset(0 -100vw);
+  --section-bg: var(--bg-soft);
+}
+
+.quotes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.review {
+  padding: var(--space-md) var(--space-sm);
+  border-top: 1px solid rgba(166, 95, 70, 0.4);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.review-author {
+  display: block;
+  margin-top: var(--space-xs);
+  font-style: normal;
+  font-size: var(--font-small);
+  color: var(--accent-text);
+}
+
+.review-page-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quotes-slide {
+  display: none;
+}
+
+#review-page-1:checked ~ .quotes-slide:nth-of-type(1),
+#review-page-2:checked ~ .quotes-slide:nth-of-type(2) {
+  display: block;
+}
+
+.quotes-dots {
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
   gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.quotes-dots label {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--card-border-color);
+  opacity: 0.35;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.quotes-dots label:hover {
+  transform: scale(1.3);
+  opacity: 0.7;
+}
+
+.quotes-dots label:active {
+  transform: scale(0.85);
+}
+
+#review-page-1:checked ~ .quotes-dots label[for="review-page-1"],
+#review-page-2:checked ~ .quotes-dots label[for="review-page-2"] {
+  opacity: 1;
+}
+
+#review-page-1:focus-visible ~ .quotes-dots label[for="review-page-1"],
+#review-page-2:focus-visible ~ .quotes-dots label[for="review-page-2"] {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+}
+
+@media (min-width: 650px) {
+  .quotes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.eyebrow {
+  font-size: var(--font-small);
+  letter-spacing: 0.15em;
+  color: var(--accent-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.how-it-works {
+  background: var(--bg-soft);
+}
+
+.how-it-works h2 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  text-align: left;
+}
+
+.activity-card {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.activity-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd8c2;
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.activity-card h3 {
+  font-size: var(--font-h2);
+  margin: 0 0 4px;
+}
+
+.activity-tag {
+  color: var(--accent-text);
+  font-style: italic;
+  margin-bottom: var(--space-sm);
+}
+
+.activity-card p {
+  font-size: var(--font-small);
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+}
+
+.step-link {
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (min-width: 650px) {
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Checklist */
@@ -216,9 +369,21 @@ section {
 }
 
 /* FAQ + Contact */
+.faq-contact {
+  background: var(--bg-soft);
+}
+
+.faq-contact h2 {
+  text-align: center;
+}
+
 .two-col {
   display: grid;
   gap: var(--space-lg);
+}
+
+.faq details {
+  border-bottom: 1px solid rgba(75, 59, 52, 0.18);
 }
 
 details {
@@ -238,23 +403,9 @@ summary {
     margin-top: var(--space-xl);
   }
 
-.about-section {
-  padding-top: var(--space-lg);
-}
-
 .container > hr {
   margin-bottom: var(--space-xs);
 }
-
- .courses h2 {
-    text-align: center;
- }
-
- .about .image {
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
 
  .image-thanks {
    display: flex;
@@ -271,39 +422,12 @@ summary {
    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
  }
 
- .about .image-frame {
-   border-radius: 32px;
-   border: 1px solid var(--card-border-color);
-   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
- }
-
-.about .image-frame img {
-  display: block;
-  width: 100%;
-  max-width: 340px;
-  height: auto;
-  border-radius: 24px;
-}
-
-.about .split-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-}
 
 .workshop-complete-description{
     font-size: var(--font-lead);
     margin-bottom: var(--space-md);
     color: var(--text-completed);
     text-align: center;
-}
-
-@media (max-width: 767px) {
-  .about .split-layout {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: var(--space-lg);
-  }
 }
 
 details::details-content {
@@ -319,19 +443,9 @@ details[open]::details-content {
 
 /* Responsive */
 @media (min-width: 768px) {
-  .hero-layout,
   .two-col {
     grid-template-columns: 1fr 1fr;
     align-items: center;
-  }
-
-  .courses h2 {
-      text-align: left;
-   }
-
-  .split-layout {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
   }
 
   .card {
@@ -361,53 +475,3 @@ details[open]::details-content {
     width: 40%;
   }
  }
-/* Section status indicators */
-.section--ongoing,
-.section--completed {
-  position: relative;
-}
-
-.section--ongoing::before,
-.section--completed::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-}
-
-.section--ongoing {
-  background: linear-gradient(to right, rgba(76, 175, 125, 0.06), transparent 40%);
-}
-
-.section--ongoing::before {
-  background: linear-gradient(to bottom, transparent, #4caf7d 20%, #4caf7d 80%, transparent);
-}
-
-.section--completed {
-  background: linear-gradient(to right, rgba(222, 34, 20, 0.04), transparent 40%);
-}
-
-.section--completed::before {
-  background: linear-gradient(to bottom, transparent, var(--text-completed) 20%, var(--text-completed) 80%, transparent);
-}
-
-.section--completed .course-list,
-.section--completed .course-card,
-.section--completed .course-meta,
-.section--completed .course-cta {
-  opacity: 0.65;
-  filter: grayscale(40%);
-}
-
-.section-status-note {
-  font-size: var(--font-lead);
-  color: var(--text-completed);
-  margin-top: calc(var(--space-xs) * -0.5);
-  margin-bottom: var(--space-md);
-}
-
-.section-status-note--ongoing {
-  color: #4caf7d;
-}

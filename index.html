@@ -24,26 +24,35 @@
   <link rel="stylesheet" href="/styles/hero.css" />
   <link rel="stylesheet" href="/styles/logo.css" />
   <link rel="stylesheet" href="/styles/footer.css" />
-  <link rel="stylesheet" href="/styles/icons.css" />
   <script src="/assets/js/includes.js" defer></script>
 </head>
 
 <body class="home">
 
-<header class="hero">
-  <div class="container hero-layout">
-      <div class="hero-logo">
-        <img src="/assets/svg/mamma_mind_logo_combined.svg"
-             alt="Mamma Mind"
-             class="logo">
-      </div>
+<header class="site-header">
+  <div class="container site-header-layout">
+    <a href="/" class="site-logo-link">
+      <img src="/assets/svg/mamma_mind_logo_2.svg"
+           alt=""
+           class="site-logo">
+      <span class="site-logo-word">MAMMAMIND</span>
+    </a>
+    <button class="menu-toggle" aria-label="Öppna meny" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
 
+<section class="hero">
+  <div class="container hero-layout">
     <div class="hero-text">
       <h1>Find your <span class="accent-word">strength</span>.<br>Find your <span class="accent-word">calm</span>.<br>Find your <span class="accent-word">village</span>.</h1>
       <p class="lead">
         En trygg plats för mammor att bygga upp kroppen, hitta återhämtning och känna gemenskap.
       </p>
-      <a href="#courses" class="button hero-cta">
+      <a href="#aktiviteter" class="button hero-cta">
         <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" class="hero-cta-heart">
           <path d="M12 21s-6.7-4.35-9.33-8.2C.86 10.1 1.4 6.6 4.1 5.02c2.2-1.28 4.9-.6 6.4 1.28.5.62.9 1.3 1.5 1.3s1-.68 1.5-1.3c1.5-1.88 4.2-2.56 6.4-1.28 2.7 1.58 3.24 5.08 1.43 7.78C18.7 16.65 12 21 12 21z"/>
         </svg>
@@ -51,22 +60,13 @@
       </a>
     </div>
   </div>
-</header>
+</section>
 
 
 <main>
 
   <section class="community">
     <div class="container">
-
-      <div class="image">
-        <div class="image-frame">
-          <img
-                  src="/assets/images/MammaMind_training.jpg"
-                  alt="Tara, instruktör för MammaMind"
-          >
-        </div>
-      </div>
 
       <h2>Mer än bara träning -<br>ett community för mammor</h2>
       <hr>
@@ -101,151 +101,94 @@
     </div>
   </section>
 
-  <section class="how-it-works">
-    <div class="container">
-      <h2>Så möts vi på MammaMind</h2>
-      <hr>
 
-    </div>
-  </section>
-
-  <section class="audience">
-    <div class="container">
-      <h2>Varför MammaMind?</h2>
-      <p>
-        MammaMind finns för dig som är gravid eller nybliven mamma och vill röra på dig med trygghet, inte krav.
-        För dig som känner dig osäker på vad din kropp klarar av – och längtar efter att lyssna inåt igen.
-        Här möts anpassad träning, återhämtning och medveten närvaro i en mjuk helhet.
-        Allt utgår från var du befinner dig, med fokus på styrka, andning, stabilitet och läkning.
-      </p>
-
-      <p>
-        Återhämtning är en självklar del, inte något som ska hinnas med senare.
-        Och kanske viktigast av allt – här finns gemenskap.
-        En plats där du inte behöver bära allt själv, och där det är okej att vara precis där du är.
-      </p>
-      <p>
-        Låter det intressant? Kolla in aktuella kurser och workshops eller kontakta mig direkt för mer info!
-      </p>
-
-      <div class="contact-icons">
-
-        <a
-                href="https://www.instagram.com/tara_mammamind/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="icon-link"
-                aria-label="Följ MammaMind på Instagram"
-        >
-          <img src="/assets/svg/instagram-logo.svg" alt="" />
-          <span>@tara_mammamind</span>
-        </a>
-
-        <a
-                href="mailto:info@mammamind.se"
-                class="icon-link"
-                aria-label="Maila MammaMind"
-        >
-          <img src="/assets/svg/email.svg" alt="" />
-          <span>info@mammamind.se</span>
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <div class="container">
+  <div class="container divider-soft">
     <hr>
   </div>
 
-  <section class="courses section--ongoing" id="courses">
+  <section class="how-it-works" id="aktiviteter">
     <div class="container">
-      <h2>Aktuella kurser 2026</h2>
-      <p class="section-status-note section-status-note--ongoing">Nya kurstillfällen är planerade till hösten 2026</p>
+      <div class="eyebrow">SÅ MÖTS VI PÅ MAMMAMIND</div>
+      <h2>Hitta det du behöver just nu</h2>
 
-      <div class="course-list">
-        <h3>🌿 Trygg återstart efter graviditet</h3>
-        <article class="course-card">
-          <ul class="course-meta">
-            <li>Startdatum:&nbsp;<strong>6&nbsp;maj&nbsp;</strong></li>
-            <li>Varje Onsdag kl.&nbsp;<strong>10:00–11:00</strong></li>
-            <li>Plats: Utomhus Eriksberg</li>
-            <li>6 tillfällen</li>
-          </ul>
+      <div class="activities-grid">
+        <article class="activity-card">
+          <div class="activity-icon">🌿</div>
+          <h3>MammaMind Flow</h3>
+          <div class="activity-tag">Find your strength</div>
+          <p>Vår signaturkurs för dig som vill bygga upp kroppen efter graviditet genom andning, yoga, styrka, meditation och gemenskap.</p>
+          <a href="#" class="step-link">Läs mer →</a>
+        </article>
 
-          <div class="course-cta">
-            <a href="/courses/trygg-aterstart-for-mammor.html" class="button primary">Läs mer om kursen</a>
-          </div>
+        <article class="activity-card">
+          <div class="activity-icon">◌</div>
+          <h3>MammaMind Walks</h3>
+          <div class="activity-tag">Find your people</div>
+          <p>Följ med på våra kostnadsfria promenader där vi får röra på oss, prata och lära känna andra mammor i en avslappnad miljö.</p>
+          <a href="#" class="step-link">Läs mer →</a>
+        </article>
 
+        <article class="activity-card">
+          <div class="activity-icon">☾</div>
+          <h3>MammaMind After Hours</h3>
+          <div class="activity-tag">Find yourself</div>
+          <p>En gång i månaden ses vi för en avslappnad kväll med god mat, något gott i glaset (med eller utan alkohol) och fina samtal. För ibland behöver vi få vara vuxna tillsammans – inte bara mammor.</p>
+          <a href="#" class="step-link">Läs mer →</a>
+        </article>
+
+        <article class="activity-card">
+          <div class="activity-icon">♥</div>
+          <h3>MammaMind Community</h3>
+          <div class="activity-tag">Find your village</div>
+          <p>Ett kostnadsfritt community där du får vårt månatliga nyhetsbrev fyllt med inspiration, kunskap och inbjudningar till allt som händer inom MammaMind.</p>
+          <a href="#" class="step-link">Gå med →</a>
         </article>
       </div>
+
     </div>
   </section>
 
-  <div class="container">
+  <div class="container divider-soft">
     <hr>
   </div>
 
-  <section class="courses section--completed" id="workshops">
+  <section class="reviews">
     <div class="container">
-      <h2>Prova på workshop</h2>
-      <p class="section-status-note"><b>Nya workshops är planerade till hösten 2026</b></p>
+      <div class="eyebrow">RÖSTER FRÅN COMMUNITYT</div>
+      <h2>Vad andra mammor säger om MammaMind</h2>
 
-      <div class="course-list">
-        <h3>Stark & smärtfri vardag: Fokus på Bäckenbotten & Andning</h3>
-        <article class="course-card">
-          <ul class="course-meta">
-            <li>Datum:<strong>&nbsp;19&nbsp;mars</strong>&nbsp;2026</li>
-            <li>Tid kl.&nbsp;<strong>&nbsp;13:00– ca 14:30</strong>&nbsp; (inkl. fika)</li>
-            <li>Plats: Vila och värme yogastudio, Säterigatan 29 Eriksberg</li>
-            <li>Gratis prova på, anmäl intresse - först till kvarn!</li>
-          </ul>
+      <div class="quotes-pager">
+        <input type="radio" name="review-page" id="review-page-1" class="review-page-radio" checked>
+        <input type="radio" name="review-page" id="review-page-2" class="review-page-radio">
 
-          <div class="course-cta">
-            <a href="/courses/workshop-smartfri-vardag.html" class="button primary">Läs mer om workshopen</a>
+        <div class="quotes-slide">
+          <div class="quotes">
+            <div class="review">&ldquo;En träningsform som jag kunde göra trots att jag inte känner mig helt smärtfri efter förlossningen. Men bäst av allt var nog att jag fick nya vänner.&rdquo;<span class="review-author">– Josefin</span></div>
+            <div class="review">&ldquo;Att få komma iväg och umgås med andra mammor och kombinera det med träning gör gott för både kropp och knopp. Det var en viktig tid i veckan för mig!&rdquo;<span class="review-author">– Sanna</span></div>
+            <div class="review">&ldquo;Kursen har stärkt mitt självförtroende i både träningen och min roll som mamma.&rdquo;<span class="review-author">– Nancy</span></div>
           </div>
+        </div>
 
-        </article>
+        <div class="quotes-slide">
+          <div class="quotes">
+            <div class="review">&ldquo;Even if the baby was there, it felt like winning time for myself. It felt great mentally to do something for me.&rdquo;<span class="review-author">– Sinziana</span></div>
+            <div class="review">&ldquo;Mysig stund med andra mammor och barn med rörelse men helt utan press på prestation.&rdquo;</div>
+            <div class="review">&ldquo;Gemenskapen med andra mammor var väldigt viktig för mig. Kursen tillförde väldigt mycket både socialt och för kroppen.&rdquo;</div>
+          </div>
+        </div>
+
+        <div class="quotes-dots">
+          <label for="review-page-1" aria-label="Recensioner sida 1"></label>
+          <label for="review-page-2" aria-label="Recensioner sida 2"></label>
+        </div>
       </div>
     </div>
   </section>
-
-  <div class="container">
-    <hr>
-  </div>
-
-  <section class="about about-section">
-    <div class="container split-layout">
-      <div class="text">
-        <h2>Om mig</h2>
-        <p>
-          Jag är mamma till två barn som har förändrat min syn på hälsa, kropp och livet i
-          grunden. De har lärt mig att hälsa inte handlar om prestation – utan om tålamod,
-          nyfikenhet och självomsorg. Under min första graviditet insåg jag hur lite stöd som
-          fanns för trygg träning före och efter förlossning, och hur osäker jag själv kände mig.
-          Det blev startskottet för MammaMind.
-        </p>
-        <p>
-          Med över tio års yogapraktik och utbildningar inom yoga, kost och träning under och
-          efter graviditet erbjuder jag ett inkännande och hållbart stöd. Hos mig får du landa,
-          känna dig sedd och bygga styrka i din egen takt – utan press eller jämförelse. Min
-          önskan är att göra den här omvälvande tiden kring graviditeten lite lättare och att
-          skapa en plats där mammor får mötas, vila och växa – tillsammans.
-        </p>
-      </div>
-
-
-    </div>
-  </section>
-
-  <div class="container">
-    <hr>
-  </div>
 
   <section class="faq-contact">
     <div class="container two-col">
       <div class="faq">
+        <div class="eyebrow">VANLIGA FRÅGOR</div>
         <h2>Vanliga frågor</h2>
 
         <details>
