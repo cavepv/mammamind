@@ -4,7 +4,7 @@ footer {
   padding: var(--space-xl) var(--space-md);
   font-size: 1rem;
   color: var(--cream);
-  background: var(--brown);
+  background: var(--accent);
 }
 
 .footer-contact {
@@ -45,7 +45,7 @@ footer.footer-grid {
   gap: var(--space-md);
 
   padding: var(--space-xl) var(--space-md);
-  background: var(--brown);
+  background: var(--accent);
   color: var(--cream);
   text-align: center;
   font-size: 1rem;
