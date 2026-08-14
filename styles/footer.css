@@ -2,7 +2,7 @@
 footer {
   text-align: center;
   padding: var(--space-xl) var(--space-md);
-  font-size: 1rem;
+  font-size: 0.8125rem;
   color: var(--cream);
   background: var(--accent);
 }
@@ -48,7 +48,7 @@ footer.footer-grid {
   background: var(--accent);
   color: var(--cream);
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8125rem;
 }
 
 footer.footer-grid > * {
@@ -99,7 +99,7 @@ footer.footer-grid > * {
   grid-column: 3;
   grid-row: 2;
   justify-self: end;
-  font-size: 1.0rem;
+  font-size: 0.8125rem;
   opacity: 0.8;
   }
 

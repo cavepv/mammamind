@@ -26,9 +26,9 @@
     /* Typography */
     --font-base: 1rem;
     --font-small: 0.875rem;
-    --font-lead: 1.125rem;
-    --font-h1: clamp(1.75rem, 5vw, 2.5rem);
-    --font-h2: clamp(1.4rem, 4vw, 1.75rem);
+    --font-lead: 1.0625rem;
+    --font-h1: clamp(2.75rem, 6vw, 3.5rem);
+    --font-h2: clamp(2.125rem, 5vw, 2.5rem);
 
 
     /* Line heights */
@@ -281,8 +281,8 @@ section {
 }
 
 .eyebrow {
-  font-size: var(--font-small);
-  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  letter-spacing: 0.23em;
   color: var(--accent-text);
   font-weight: 700;
   text-transform: uppercase;
@@ -372,13 +372,15 @@ section {
 }
 
 .activity-card h3 {
-  font-size: var(--font-h2);
+  font-size: 1.5625rem;
   margin: 0 0 4px;
 }
 
 .activity-tag {
   color: var(--accent-text);
+  font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
+  font-size: 1.125rem;
   margin-bottom: var(--space-sm);
 }
 
@@ -390,7 +392,8 @@ section {
 
 .step-link {
   color: var(--accent-text);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: var(--font-small);
   text-decoration: none;
 }
 

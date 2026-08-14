@@ -45,6 +45,12 @@
   letter-spacing: 0.13em;
 }
 
+@media (max-width: 650px) {
+  .site-logo-word {
+    font-size: 16px;
+  }
+}
+
 .menu-toggle {
   background: none;
   border: none;
@@ -130,7 +136,7 @@
 }
 
 .hero-text h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--font-h1);
   margin-bottom: 4rem;
   text-align: center;
   line-height: 1.2;
@@ -199,12 +205,4 @@
   );
 
   pointer-events: none;
-}
-
-@media (min-width: 768px) {
-  .hero-text h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 4rem;
-    text-align: center;
-  }
 }
