@@ -112,18 +112,23 @@ hr::after {
 }
 
 
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
 h1 {
   font-size: var(--font-h1);
   line-height: var(--lh-heading);
   margin-bottom: 4rem;
-  font-weight: 400;
 }
 
 h2 {
   font-size: var(--font-h2);
   line-height: var(--lh-heading);
   margin-bottom: var(--space-md);
-  font-weight: 400;
 }
 
 body.home h2 {
@@ -341,10 +346,6 @@ section {
   font-size: 2.5rem;
   color: var(--accent-text);
   margin: var(--space-xs) 0;
-}
-
-.how-it-works h2 {
-  font-family: Georgia, "Times New Roman", serif;
 }
 
 .activities-grid {
