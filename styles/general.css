@@ -441,11 +441,6 @@ section {
   text-align: left;
 }
 
-.two-col {
-  display: grid;
-  gap: var(--space-lg);
-}
-
 .faq details {
   border-bottom: 1px solid rgba(75, 59, 52, 0.18);
 }
@@ -527,11 +522,6 @@ details[open]::details-content {
 
 /* Responsive */
 @media (min-width: 768px) {
-  .two-col {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-
   .card {
     padding: var(--space-md);
   }
