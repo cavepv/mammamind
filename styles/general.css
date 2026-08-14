@@ -154,6 +154,7 @@ section {
 .community {
   background: var(--bg-soft);
   --section-bg: var(--bg-soft);
+  text-align: center;
 }
 
 .card-grid {
