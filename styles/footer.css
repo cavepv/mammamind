@@ -3,8 +3,8 @@ footer {
   text-align: center;
   padding: var(--space-xl) var(--space-md);
   font-size: 1rem;
-  color: var(--text-white);
-  background: var(--accent);
+  color: var(--cream);
+  background: var(--brown);
 }
 
 .footer-contact {
@@ -45,8 +45,8 @@ footer.footer-grid {
   gap: var(--space-md);
 
   padding: var(--space-xl) var(--space-md);
-  background: var(--accent);
-  color: var(--text-white);
+  background: var(--brown);
+  color: var(--cream);
   text-align: center;
   font-size: 1rem;
 }
@@ -56,7 +56,7 @@ footer.footer-grid > * {
 }
 
 .footer-grid a {
-  color: var(--text-white);
+  color: var(--cream);
   text-decoration: none;
 }
 

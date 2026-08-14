@@ -1,6 +1,8 @@
 :root {
   --bg-main: #faf7f2;
   --bg-soft: #f3e6e1;
+  --cream: #f5f0e7;
+  --brown: #4b3b34;
   --card-bg: #ffffff;
   --card-border-color: #b89061;
   --footer-bg: #f9f1ed;
@@ -219,13 +221,20 @@ section {
   pointer-events: none;
 }
 
+.quotes-pager {
+  display: grid;
+}
+
 .quotes-slide {
-  display: none;
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  visibility: hidden;
 }
 
 #review-page-1:checked ~ .quotes-slide:nth-of-type(1),
 #review-page-2:checked ~ .quotes-slide:nth-of-type(2) {
-  display: block;
+  visibility: visible;
 }
 
 .quotes-dots {
@@ -282,6 +291,23 @@ section {
 
 .how-it-works {
   background: var(--bg-soft);
+}
+
+.bg-cream {
+  background: var(--cream);
+  --section-bg: var(--cream);
+}
+
+.bg-soft-section {
+  background: var(--bg-soft);
+  --section-bg: var(--bg-soft);
+}
+
+.price-highlight {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.5rem;
+  color: var(--accent-text);
+  margin: var(--space-xs) 0;
 }
 
 .how-it-works h2 {
@@ -377,6 +403,12 @@ section {
   text-align: center;
 }
 
+.faq {
+  max-width: 650px;
+  margin: var(--space-lg) auto 0;
+  text-align: left;
+}
+
 .two-col {
   display: grid;
   gap: var(--space-lg);
@@ -396,6 +428,26 @@ summary {
     line-height: 1.5;
   cursor: pointer;
   font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  color: var(--accent-text);
+  font-weight: 700;
+  flex: none;
+}
+
+details[open] summary::after {
+  content: "−";
 }
 
 .contact-button {
