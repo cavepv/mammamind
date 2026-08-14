@@ -289,6 +289,30 @@ section {
   text-align: center;
 }
 
+.journal {
+  text-align: center;
+}
+
+.journal-box {
+  border: 1px solid rgba(166, 95, 70, 0.35);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.journal-box h2 {
+  text-align: center;
+}
+
+.journal-quote {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--accent-text);
+  margin: var(--space-md) 0;
+}
+
 .how-it-works {
   background: var(--bg-soft);
 }
