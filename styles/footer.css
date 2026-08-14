@@ -3,7 +3,7 @@ footer {
   text-align: center;
   padding: var(--space-xl) var(--space-md);
   font-size: 0.8125rem;
-  color: var(--cream);
+  color: white;
   background: var(--accent);
 }
 
@@ -46,7 +46,7 @@ footer.footer-grid {
 
   padding: var(--space-xl) var(--space-md);
   background: var(--accent);
-  color: var(--cream);
+  color: white;
   text-align: center;
   font-size: 0.8125rem;
 }
@@ -56,7 +56,7 @@ footer.footer-grid > * {
 }
 
 .footer-grid a {
-  color: var(--cream);
+  color: white;
   text-decoration: none;
 }
 
