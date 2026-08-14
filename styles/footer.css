@@ -71,19 +71,19 @@ footer.footer-grid > * {
   grid-row: 1;
 }
 
-.footer-social {
+.footer-privacy {
   grid-column: 2;
   grid-row: 1;
   justify-self: center;
 }
 
-.footer-privacy {
+.footer-terms {
   grid-column: 3;
   grid-row: 1;
   justify-self: center;
 }
 
-.footer-terms {
+.footer-social {
   grid-column: 4;
   grid-row: 1;
   justify-self: end;
@@ -117,9 +117,9 @@ footer.footer-grid > * {
  }
 
   .footer-email   { grid-column: 2; }
-  .footer-social  { grid-column: 3; }
-  .footer-privacy { grid-column: 4; }
-  .footer-terms   { grid-column: 5; }
+  .footer-privacy { grid-column: 3; }
+  .footer-terms   { grid-column: 4; }
+  .footer-social  { grid-column: 5; }
 
   .footer-copy {
     grid-column: 1 / -1;
