@@ -84,6 +84,10 @@ img {
   padding: var(--space-sm) 1.375rem;
 }
 
+.container.narrow {
+  max-width: 650px;
+}
+
 hr {
   border: none;
   height: 2px;
