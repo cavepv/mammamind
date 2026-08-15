@@ -167,6 +167,10 @@ section {
   gap: var(--space-sm);
 }
 
+.eyebrow + .card-grid {
+  margin-top: 2rem;
+}
+
 .course-detail p,
 .course-detail ul {
   font-size: var(--font-lead);
