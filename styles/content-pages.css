@@ -1,7 +1,33 @@
-/* Layout for subpages/om-tara.html — page-specific pieces not covered by general.css */
+/* Shared layout for simple content subpages (Om Tara, Walks, Community, After
+   Hours) — pieces not already covered by general.css/hero.css/buttons.css */
 
 .center {
   text-align: center;
+}
+
+.tagline {
+  font: italic 27px Georgia, "Times New Roman", serif;
+  color: var(--accent-text);
+  margin: 0 0 14px;
+}
+
+.info-rows {
+  max-width: 480px;
+  margin: 28px auto;
+  text-align: left;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(75, 59, 52, 0.18);
+}
+
+.small {
+  font-size: 0.8125rem;
+  line-height: 1.6;
 }
 
 .about-grid {
