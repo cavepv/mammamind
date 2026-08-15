@@ -37,6 +37,16 @@
   line-height: 1.6;
 }
 
+/* Shared content-photo used on subpages/thanks.html and similar single-photo
+   sections; consistent rounded corners + soft shadow matching the nav panel. */
+.content-photo {
+  display: block;
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(58, 47, 43, 0.12);
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
