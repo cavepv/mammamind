@@ -199,10 +199,9 @@ section {
 }
 
 .divider-soft {
-  background: var(--bg-soft);
-  box-shadow: 0 0 0 100vw var(--bg-soft);
+  background: var(--section-bg, var(--bg-main));
+  box-shadow: 0 0 0 100vw var(--section-bg, var(--bg-main));
   clip-path: inset(0 -100vw);
-  --section-bg: var(--bg-soft);
 }
 
 .quotes {
@@ -338,6 +337,7 @@ section {
 
 .how-it-works {
   background: var(--bg-soft);
+  --section-bg: var(--bg-soft);
 }
 
 .bg-cream {
@@ -497,7 +497,7 @@ details[open] summary::after {
   }
 
 .container > hr {
-  margin-bottom: var(--space-xs);
+  margin: var(--space-xs);
 }
 
 .workshop-complete-description{
