@@ -100,29 +100,16 @@
 }
 
 @media (min-width: 650px) {
-  .site-nav.is-open {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: var(--space-lg);
-    position: static;
-    border-bottom: none;
-    padding: 0;
-    background: none;
-    order: 1;
-  }
-
   .site-header-layout {
-    justify-content: flex-start;
-    gap: var(--space-md);
+    position: relative;
   }
 
-  .site-logo-link {
-    margin-right: auto;
-  }
-
-  .menu-toggle {
-    order: 2;
+  .site-nav.is-open {
+    left: auto;
+    min-width: 240px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 24px rgba(58, 47, 43, 0.12);
+    border-bottom: none;
   }
 }
 
