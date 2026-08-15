@@ -67,6 +67,65 @@
   stroke-width: 2;
 }
 
+/* Sandwich nav: hidden dropdown, toggled via JS-added .is-open class (see includes.js) */
+.site-nav {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: rgba(245, 240, 231, 0.9);
+  border-bottom: 1px solid rgba(58, 47, 43, 0.08);
+  padding: var(--space-sm) 1.375rem var(--space-md);
+}
+
+.site-nav.is-open {
+  display: flex;
+}
+
+.site-nav a {
+  padding: var(--space-xs) 0;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: var(--font-small);
+  letter-spacing: 0.02em;
+  text-align: right;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent-text);
+}
+
+@media (min-width: 650px) {
+  .site-nav.is-open {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--space-lg);
+    position: static;
+    border-bottom: none;
+    padding: 0;
+    background: none;
+    order: 1;
+  }
+
+  .site-header-layout {
+    justify-content: flex-start;
+    gap: var(--space-md);
+  }
+
+  .site-logo-link {
+    margin-right: auto;
+  }
+
+  .menu-toggle {
+    order: 2;
+  }
+}
+
 .hero-scroll-indicator {
   display: flex;
   justify-content: center;
