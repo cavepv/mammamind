@@ -141,9 +141,10 @@ body.home h2 {
 
 .lead,
 .lead-course-description {
+  font-family: Arial, sans-serif;
   font-size: var(--font-lead);
   margin-bottom: var(--space-md);
-  color: var(--text-main-h2);
+  color: #4b3b34;
 }
 
 .lead {
@@ -316,6 +317,10 @@ section {
 
 .journal-box h2 {
   text-align: center;
+}
+
+.journal-box .lead {
+  font-family: "Montserrat", serif;
 }
 
 .journal-quote {
