@@ -7,9 +7,12 @@
             http-equiv="Content-Security-Policy"
             content="
                 default-src 'self';
-                img-src 'self' https:;
-                style-src 'self' 'unsafe-inline';
-                form-action 'self' https://formspree.io;
+                img-src 'self' https: data:;
+                style-src 'self' 'unsafe-inline' https://assets.mlcdn.com https://assets.mailerlite.com;
+                script-src 'self' 'unsafe-inline' https://*.mailerlite.com;
+                connect-src 'self' https://*.mailerlite.com;
+                frame-src 'self' https://*.mailerlite.com;
+                form-action 'self' https://formspree.io https://*.mailerlite.com;
                 base-uri 'self';
                 object-src 'none';"
     >
@@ -24,6 +27,15 @@
     <link rel="stylesheet" href="/styles/footer.css" />
     <link rel="stylesheet" href="/styles/content-pages.css" />
     <script src="/assets/js/includes.js" defer></script>
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '2565702');
+    </script>
+    <!-- End MailerLite Universal -->
 </head>
 
 <body>
@@ -65,10 +77,8 @@
         <div class="container narrow center">
             <h2>Journalen landar i din inkorg varje månad</h2>
             <p class="lead">Kostnadsfritt. Ingen prestation. Bara lite rörelse, eftertanke, kunskap och gemenskap att återvända till under månaden.</p>
-            <!-- ponytail: visual field only, mailto CTA kept as-is; wire to Formspree once a dedicated endpoint exists -->
             <div class="newsletter-form">
-                <input type="email" placeholder="Din e-postadress" aria-label="Din e-postadress">
-                <a class="button primary" href="mailto:info@mammamind.se">BLI EN DEL AV MAMMAMIND COMMUNITY</a>
+                <a class="button primary ml-onclick-form" href="javascript:void(0)" aria-haspopup="dialog" onclick="ml('show', 'JBfVG7', true)">BLI EN DEL AV MAMMAMIND COMMUNITY</a>
             </div>
         </div>
     </section>

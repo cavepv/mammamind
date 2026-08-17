@@ -7,9 +7,12 @@
             http-equiv="Content-Security-Policy"
             content="
                 default-src 'self';
-                img-src 'self' https:;
-                style-src 'self' 'unsafe-inline';
-                form-action 'self' https://formspree.io;
+                img-src 'self' https: data:;
+                style-src 'self' 'unsafe-inline' https://assets.mlcdn.com https://assets.mailerlite.com;
+                script-src 'self' 'unsafe-inline' https://*.mailerlite.com;
+                connect-src 'self' https://*.mailerlite.com;
+                frame-src 'self' https://*.mailerlite.com;
+                form-action 'self' https://formspree.io https://*.mailerlite.com;
                 base-uri 'self';
                 object-src 'none';"
     >
@@ -23,6 +26,15 @@
     <link rel="stylesheet" href="/styles/logo.css">
     <link rel="stylesheet" href="/styles/footer.css" />
     <script src="/assets/js/includes.js" defer></script>
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '2565702');
+    </script>
+    <!-- End MailerLite Universal -->
 </head>
 
 <body>
@@ -133,7 +145,7 @@
             <p class="activity-tag"><strong>EARLY BIRD T.O.M. 13 SEPTEMBER</strong></p>
             <div class="price-highlight">1 799 kr</div>
             <p class="activity-tag" style="font-size:var(--font-small)">+ goodiebag värd ca 700 kr 💛</p>
-            <a href="#anmalan" class="button primary">Boka din plats</a>
+            <a href="javascript:void(0)" class="button primary ml-onclick-form" aria-haspopup="dialog" onclick="ml('show', 'hvXsmm', true)">Boka din plats</a>
         </div>
     </section>
 
