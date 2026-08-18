@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+/* h1 default has a large margin-bottom (general.css) meant for hero
+   sections; these content-page headers are followed immediately by a
+   tagline, so tighten the gap to match the reference mockups. */
+.container.center h1 {
+  margin-bottom: 0.5rem;
+}
+
 .tagline {
   font: italic 27px Georgia, "Times New Roman", serif;
   color: var(--accent-text);

@@ -48,6 +48,12 @@
 }
 
 main {
+  padding-bottom: 0;
+}
+
+/* Extra breathing room before the footer, using the last section's own
+   background so it doesn't expose the body's cream color underneath. */
+main > section:last-of-type {
   padding-bottom: var(--space-xl);
 }
 
