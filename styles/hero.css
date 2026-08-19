@@ -188,6 +188,17 @@
   line-height: 1.2;
 }
 
+/* Real Android/iOS devices fall back to a wider serif (no Georgia/Times
+   New Roman installed) than desktop testing shows, so the fixed 44px
+   --font-h1 minimum can overflow narrow viewports (e.g. "strength"
+   wrapping on a Pixel 8). Scale the minimum down with viewport width
+   instead of a fixed floor. */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: clamp(2rem, 9vw, 3.5rem);
+  }
+}
+
 .accent-word {
   color: var(--accent);
 }
