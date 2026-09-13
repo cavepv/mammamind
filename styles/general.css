@@ -274,17 +274,16 @@ section {
   opacity: 0.35;
   cursor: pointer;
   transition: transform 0.15s ease, opacity 0.15s ease;
-  animation: dot-pulse 2s ease-in-out infinite;
 }
 
-@keyframes dot-pulse {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 0.7; }
-}
-
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: no-preference) {
   .quotes-dots label {
-    animation: none;
+    animation: dot-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 0.7; }
   }
 }
 
@@ -335,6 +334,19 @@ section {
   padding: var(--space-lg);
   max-width: 720px;
   margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .js-reveal .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .journal-box h2 {
