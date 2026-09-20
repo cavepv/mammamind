@@ -39,6 +39,23 @@
   border: 1px solid rgba(166, 95, 70, 0.35);
 }
 
+/* Business (för företag) service cards: descriptive copy + a read-more
+   toggle read better left-aligned than the default centered .card text. */
+.business-cards .card {
+  text-align: left;
+}
+
+.business-cards details summary {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .business-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .small {
   font-size: 0.8125rem;
   line-height: 1.6;
