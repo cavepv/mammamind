@@ -66,6 +66,16 @@
   font-family: Georgia, "Times New Roman", serif;
 }
 
+@media (max-width: 480px) {
+  .business-eyebrow {
+    font-size: 0.6875rem;
+  }
+
+  .business-heading {
+    font-size: clamp(2rem, 9vw, 3.5rem);
+  }
+}
+
 @media (min-width: 768px) {
   .business-cards {
     grid-template-columns: repeat(2, 1fr);
