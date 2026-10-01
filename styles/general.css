@@ -2,6 +2,7 @@
   --bg-main: #f5f0e7;
   --bg-soft: #ede1d5;
   --cream: #f5f0e7;
+  --b2b-color: #cdd1c0;
   --brown: #4b3b34;
   --card-bg: #ffffff;
   --card-border-color: #b89061;
@@ -387,6 +388,11 @@ section {
 .bg-soft-section {
   background: var(--bg-soft);
   --section-bg: var(--bg-soft);
+}
+
+.bg-soft-section-b2b {
+  background: var(--b2b-color);
+  --section-bg: var(--b2b-color);
 }
 
 .price-highlight {

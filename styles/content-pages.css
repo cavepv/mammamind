@@ -6,8 +6,8 @@
 }
 
 .business-hero {
-  background: var(--bg-soft);
-  --section-bg: var(--bg-soft);
+  background: var(--b2b-color);
+  --section-bg: var(--b2b-color);
 }
 
 .business-page > section {
@@ -24,7 +24,7 @@
 
 .business-hero .business-eyebrow {
   margin: 0 0 1.75rem;
-  color: #655e57;
+  color: #15110f;
   font-weight: 400;
   letter-spacing: 0.3em;
 }
@@ -69,6 +69,21 @@
   color: #655e57;
   text-align: center;
   line-height: 1.8;
+}
+
+/* Business page footer: sage instead of the shared terracotta (WCAG AA with white). */
+.business-page ~ footer.footer-grid {
+  background: #6f7862;
+}
+
+.business-page ~ footer.footer-grid,
+.business-page ~ footer.footer-grid a {
+  color: #fff;
+}
+
+.business-page ~ footer .social-icon {
+  filter: brightness(0) invert(1);
+  opacity: 1;
 }
 
 #contact .lead {
@@ -129,7 +144,10 @@
 .business-cards .card {
   background: var(--cream);
   text-align: left;
-  border-color: rgba(184, 144, 97, 0.55);
+  /* Sub-pixel widths floor at 1 device px, so thin the line via alpha. */
+  border-color: rgba(21, 17, 15, 0.35);
+  border-width: 0.5px;
+  box-shadow: 0 3px 8px rgba(58, 47, 43, 0.07), 0 12px 24px rgba(58, 47, 43, 0.08);
 }
 
 .business-cards .card h3 {
