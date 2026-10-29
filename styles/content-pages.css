@@ -210,6 +210,23 @@
   border-color: var(--primary);
 }
 
+.newsletter-form .journal-archive-cta {
+  border: 1px solid var(--accent-text);
+  color: var(--accent-text);
+  letter-spacing: 0.02em;
+}
+
+.newsletter-form .journal-archive-cta:hover {
+  background: var(--cream);
+  color: var(--brown);
+  border-color: var(--brown);
+}
+
+.newsletter-form .journal-archive-cta:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 4px;
+}
+
 /* Shared content-photo used on subpages/thanks.html and similar single-photo
    sections; consistent rounded corners + soft shadow matching the nav panel. */
 .content-photo {
