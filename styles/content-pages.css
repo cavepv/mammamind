@@ -132,6 +132,78 @@
   border-bottom: 1px solid rgba(75, 59, 52, 0.18);
 }
 
+.after-hours-invite {
+  max-width: 440px;
+  margin: 28px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(75, 59, 52, 0.18);
+}
+
+.after-hours-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+.after-hours-invite p {
+  margin: 8px 0;
+}
+
+.after-hours-invite .after-hours-kicker {
+  margin: 0;
+  color: var(--accent-text);
+}
+
+.after-hours-event-link {
+  color: var(--accent-text);
+  text-underline-offset: 5px;
+}
+
+.after-hours-invite a {
+  display: inline-block;
+  padding: 10px 0;
+}
+
+section:has(> .after-hours-event) {
+  scroll-margin-top: 90px;
+}
+
+.after-hours-event h2 {
+  margin-top: 12px;
+}
+
+.after-hours-event h3 {
+  font-size: 1.6rem;
+}
+
+.after-hours-event hr {
+  margin: 36px 0;
+}
+
+.after-hours-facts {
+  margin: 24px 0;
+}
+
+.after-hours-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(75, 59, 52, 0.18);
+}
+
+.after-hours-facts dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.after-hours-invite) {
+    scroll-behavior: auto;
+  }
+}
+
 /* Community journal cards: blend into the page background instead of the
    default .card white panel/border used elsewhere. */
 .community-cards .card {
