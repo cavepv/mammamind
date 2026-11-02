@@ -172,6 +172,18 @@ section:has(> .after-hours-event) {
   margin-top: 12px;
 }
 
+.after-hours-art {
+  position: relative;
+  align-self: stretch;
+}
+
+.after-hours-art img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .after-hours-event h3 {
   font-size: 1.6rem;
 }
@@ -365,6 +377,11 @@ section:has(> .after-hours-event) {
 }
 
 @media (max-width: 720px) {
+  .after-hours-art img {
+    position: static;
+    height: auto;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 30px;
