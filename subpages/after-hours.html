@@ -8,6 +8,7 @@
             content="
                 default-src 'self';
                 img-src 'self' https: data:;
+                media-src 'self';
                 style-src 'self' 'unsafe-inline' https://assets.mlcdn.com https://assets.mailerlite.com;
                 script-src 'self' 'unsafe-inline' https://*.mailerlite.com;
                 connect-src 'self' https://*.mailerlite.com;
@@ -45,7 +46,12 @@
 
 <main>
 
-    <section class="bg-cream">
+    <section class="after-hours-video-hero">
+        <div class="after-hours-video-media" aria-hidden="true">
+            <video muted loop playsinline preload="metadata" poster="/assets/videos/alcohol_ink-poster.jpg" tabindex="-1">
+                <source src="/assets/videos/alcohol_ink.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="container narrow center">
             <h1>MammaMind<br class="mobile-break"> After Hours</h1>
             <p class="tagline">Find yourself</p>
@@ -114,5 +120,19 @@
 
 <div data-include="footer"></div>
 
+<script>
+    (() => {
+        const video = document.querySelector(".after-hours-video-media video");
+        const motion = matchMedia("(prefers-reduced-motion: reduce)");
+        video.muted = true;
+        function playVideo() {
+            video.play().catch((error) => {
+                console.error("Bakgrundsvideon kunde inte starta:", error);
+            });
+        }
+        motion.addEventListener("change", () => { motion.matches ? video.pause() : playVideo(); });
+        if (!motion.matches) playVideo();
+    })();
+</script>
 </body>
 </html>
