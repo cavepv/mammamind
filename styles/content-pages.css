@@ -136,7 +136,6 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: 50vw;
   display: grid;
   align-items: center;
   padding: clamp(1rem, 3vw, 2.5rem) 0;
@@ -155,14 +154,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(.18) saturate(.55) brightness(.42);
-}
-
-.after-hours-video-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, rgba(75, 59, 52, .25), rgba(58, 47, 43, .4));
 }
 
 .after-hours-video-hero .tagline,
@@ -174,12 +165,6 @@
 
 .after-hours-video-hero .after-hours-invite {
   border-top-color: rgba(255, 250, 245, .45);
-}
-
-@media (max-width: 650px) {
-  .after-hours-video-hero {
-    min-height: auto;
-  }
 }
 
 .after-hours-invite {
