@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- THROWAWAY: video hero A original / B bright / C warm sand / D wider framing via ?variant=D. -->
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://assets.mlcdn.com https://assets.mailerlite.com; script-src 'self' 'unsafe-inline' https://*.mailerlite.com; connect-src 'self' https://*.mailerlite.com; frame-src 'self' https://*.mailerlite.com; form-action 'self' https://*.mailerlite.com; base-uri 'self'; object-src 'none';">
+    <title>MammaMind After Hours – videoprototyp | MammaMind</title>
+    <link rel="icon" href="/assets/svg/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="/styles/hero.css">
+    <link rel="stylesheet" href="/styles/buttons.css">
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/logo.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/content-pages.css">
+    <script src="/assets/js/includes.js" defer></script>
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '2565702');
+    </script>
+    <style>
+        .mobile-break { display: none; }
+        .after-hours-video-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background: var(--brown);
+            color: #fffaf5;
+        }
+        .after-hours-video-media {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .after-hours-video-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(.18) saturate(.55) brightness(.42);
+        }
+        .after-hours-video-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, rgba(75, 59, 52, .25), rgba(58, 47, 43, .4));
+        }
+        .after-hours-video-hero .tagline,
+        .after-hours-video-hero .lead,
+        .after-hours-video-hero .after-hours-kicker,
+        .after-hours-video-hero .after-hours-event-link {
+            color: inherit;
+        }
+        .after-hours-video-hero .after-hours-invite {
+            border-top-color: rgba(255, 250, 245, .45);
+        }
+        body[data-variant="D"] .after-hours-video-hero {
+            min-height: 50vw;
+            display: grid;
+            align-items: center;
+            padding: clamp(1rem, 3vw, 2.5rem) 0;
+        }
+        body[data-variant="B"] .after-hours-video-hero {
+            background: var(--cream);
+            color: var(--text-main);
+        }
+        body[data-variant="B"] .after-hours-video-media video {
+            filter: sepia(.18) saturate(.55) brightness(1.15);
+        }
+        body[data-variant="B"] .after-hours-video-media::after {
+            background: rgba(245, 240, 231, .78);
+        }
+        body[data-variant="B"] .after-hours-video-hero .after-hours-invite {
+            border-top-color: rgba(75, 59, 52, .3);
+        }
+        body[data-variant="C"] .after-hours-video-hero {
+            background: var(--cream);
+            color: var(--text-main);
+        }
+        body[data-variant="C"] .after-hours-video-media video {
+            filter: sepia(.3) saturate(.65) contrast(.9);
+            opacity: .4;
+        }
+        body[data-variant="C"] .after-hours-video-media::after {
+            background: radial-gradient(ellipse at center, rgba(245, 240, 231, .9) 15%, rgba(245, 240, 231, .45) 100%);
+        }
+        body[data-variant="C"] .after-hours-video-hero .tagline,
+        body[data-variant="C"] .after-hours-video-hero .after-hours-kicker,
+        body[data-variant="C"] .after-hours-video-hero .after-hours-event-link {
+            color: var(--accent-text);
+        }
+        body[data-variant="C"] .after-hours-video-hero .after-hours-invite {
+            border-top-color: rgba(75, 59, 52, .3);
+        }
+        .prototype-switcher {
+            position: fixed;
+            z-index: 20;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: max-content;
+            max-width: calc(100% - 2rem);
+            gap: .5rem 1rem;
+            padding: .65rem 1rem;
+            border-radius: 999px;
+            background: #29231f;
+            color: #fffaf5;
+            font-size: .8rem;
+            white-space: nowrap;
+        }
+        .prototype-switcher a { color: inherit; text-underline-offset: 4px; }
+        .prototype-switcher a[aria-current="page"] { font-weight: 700; }
+        .prototype-switcher a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+        @media (max-width: 650px) {
+            .mobile-break { display: inline; }
+            body[data-variant="D"] .after-hours-video-hero { min-height: auto; }
+        }
+    </style>
+</head>
+<body data-variant="A">
+<script>
+    const variant = new URLSearchParams(location.search).get("variant");
+    document.body.dataset.variant = ["B", "C", "D"].includes(variant) ? variant : "A";
+</script>
+<div data-include="header"></div>
+<main>
+    <section class="after-hours-video-hero">
+        <div class="after-hours-video-media" aria-hidden="true">
+            <video muted loop playsinline preload="metadata" poster="/assets/videos/alcohol_ink-poster.jpg" tabindex="-1">
+                <source src="/assets/videos/alcohol_ink.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="container narrow center">
+            <h1>MammaMind<br class="mobile-break"> After Hours</h1>
+            <p class="tagline">Find yourself</p>
+            <p class="lead" style="text-align: center;">När barnen har somnat är det mammans tur.</p>
+            <div class="after-hours-invite">
+                <p class="after-hours-kicker">27 NOVEMBER · SPECIELL GÄST</p>
+                <p>Måla, mingla &amp; skapa med <strong>Qendresa Shatri.</strong></p>
+                <a class="after-hours-event-link" href="#boka">Läs om vår kreativa kväll ↓</a>
+            </div>
+        </div>
+    </section>
+    <section class="bg-soft-section">
+        <div class="container narrow center">
+            <h2>En kväll för personen bakom mammarollen</h2>
+            <p class="lead">Att bli mamma förändrar mycket – vardagen, relationerna, kroppen och ibland också bilden av vem man själv är. Mitt bland matningar, nattningar och allt som ska hinnas med kan det vara lätt att glömma bort personen bakom mammarollen.</p>
+            <p class="quote">MammaMind After Hours är en kväll för henne. För dig.</p>
+        </div>
+    </section>
+    <section class="bg-cream">
+        <div class="container narrow center">
+            <h2>Inga mattor. Ingen prestation.</h2>
+            <p class="lead">En gång i månaden lämnar vi yogamattorna och barnvagnarna hemma och ses för en avslappnad kväll tillsammans. Vi äter något gott, tar ett glas vin eller alkoholfritt, pratar, skrattar och lär känna varandra bortom livet med små barn.</p>
+        </div>
+    </section>
+    <section class="bg-soft-section">
+        <div class="container narrow center">
+            <h2>Kom som du är</h2>
+            <p class="lead">Kanske trött efter en lång dag. Kanske uppklädd för första gången på länge. Kanske bara väldigt sugen på att prata med andra vuxna. Det finns inget särskilt du behöver göra.</p>
+            <p class="quote">För du är mamma. Men du är också fortfarande du.</p>
+        </div>
+    </section>
+    <section class="bg-cream" id="boka">
+        <div class="container narrow after-hours-event">
+            <div class="about-grid">
+                <div class="after-hours-art">
+                    <img src="/assets/images/qendresa_art.jpeg" alt="Konst av Qendresa Shatri" width="1179" height="1245" loading="lazy">
+                </div>
+                <div>
+                    <p class="after-hours-kicker">SPECIELL GÄST · KONSTNÄR &amp; MÅLARE</p>
+                    <h2>Qendresa Shatri</h2>
+                    <p>Den här kvällen möts MammaMind After Hours och konstnären Qendresa Shatri. En kväll för färg, samtal och personen bakom mammarollen.</p>
+                    <a class="after-hours-event-link" href="https://www.instagram.com/art.byqendresa/" target="_blank" rel="noopener noreferrer">Upptäck @art.byqendresa ↗</a>
+                </div>
+            </div>
+            <hr>
+            <h3>Du behöver inte vara konstnär.</h3>
+            <p>Bara nyfiken. Vi testar Alcohol Ink och låter färgerna mötas, utan krav på hur det ska bli. Prata, skratta och skapa i din egen takt.</p>
+            <dl class="after-hours-facts">
+                <div><dt>Datum</dt><dd>27 november</dd></div>
+                <div><dt>Tid</dt><dd>20:00–22:00</dd></div>
+                <div><dt>Plats</dt><dd>Eriksberg</dd></div>
+                <div><dt>Pris</dt><dd>299 kr</dd></div>
+            </dl>
+            <p>Allt material, bubbel eller alkoholfritt och lättare tilltugg ingår. Inga förkunskaper behövs.</p>
+            <div class="center">
+                <a class="button primary ml-onclick-form" href="javascript:void(0)" aria-haspopup="dialog" onclick="ml('show', 'HpFmiL', true)">BOKA DIN PLATS</a>
+            </div>
+        </div>
+    </section>
+</main>
+<div data-include="footer"></div>
+<nav class="prototype-switcher" aria-label="Videoprototyper">
+    <a href="?variant=A" data-variant="A">A · Mörk</a>
+    <a href="?variant=B" data-variant="B">B · Ljus</a>
+    <a href="?variant=C" data-variant="C">C · Varm sand</a>
+    <a href="?variant=D" data-variant="D">D · Vidare bild</a>
+</nav>
+<script>
+    document.querySelector(`.prototype-switcher a[data-variant="${document.body.dataset.variant}"]`).setAttribute("aria-current", "page");
+    const video = document.querySelector(".after-hours-video-media video");
+    const motion = matchMedia("(prefers-reduced-motion: reduce)");
+    video.muted = true;
+    function playVideo() {
+        video.play().catch((error) => {
+            console.error("Bakgrundsvideon kunde inte starta:", error);
+        });
+    }
+    motion.addEventListener("change", () => { motion.matches ? video.pause() : playVideo(); });
+    if (!motion.matches) playVideo();
+</script>
+</body>
+</html>
