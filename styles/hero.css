@@ -9,6 +9,63 @@
   position: relative;
 }
 
+.course-flow-hero {
+  display: grid;
+  min-height: min(74svh, 760px);
+  place-items: center;
+  padding: clamp(3rem, 8vw, 7rem) 0;
+  background-color: #3a2f2b;
+  background-image:
+    linear-gradient(180deg, rgba(29, 25, 24, 0.25), rgba(35, 29, 24, 0.74)),
+    url("/assets/images/flow_1.jpeg");
+  background-position: center 42%;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+.course-flow-hero .container {
+  display: grid;
+  justify-items: center;
+  row-gap: 1rem;
+}
+
+.course-flow-hero .hero-kicker,
+.course-flow-hero h1,
+.course-flow-hero .lead {
+  margin: 0;
+  color: inherit;
+}
+
+.course-flow-hero .hero-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+}
+
+.course-flow-hero .lead {
+  width: 100%;
+  max-width: 620px;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  text-align: center;
+}
+
+.course-flow-hero .button {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .course-flow-hero {
+    min-height: 68svh;
+    background-image:
+      linear-gradient(180deg, rgba(29, 25, 24, 0.25), rgba(35, 29, 24, 0.74)),
+      url("/assets/images/flow_1_mobile.jpeg");
+  }
+
+  .course-flow-hero .hero-kicker {
+    display: none;
+  }
+}
+
 .site-header {
   position: sticky;
   top: 0;
