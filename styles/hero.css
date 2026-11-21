@@ -320,3 +320,110 @@
 
   pointer-events: none;
 }
+/* Christmas gift-card banner (home page). Seasonal: remove after Christmas. */
+.gift-banner {
+  --bow-x: max(45px, calc((100% - 1100px) / 4 + 12px)); /* midway between viewport edge and header logo */
+  --bow-w: 90px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem 1rem 7rem;
+  background: #684139;
+  color: #fffaf3;
+  text-align: center;
+}
+
+.gift-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--bow-x) - var(--bow-w) / 12);
+  width: calc(var(--bow-w) / 6);
+  background: linear-gradient(90deg, #a9070c, #d8181d 45%, #b80c11);
+  box-shadow: 0 0 6px #0005;
+}
+
+.gift-banner-bow {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--bow-x) - var(--bow-w) / 2);
+  top: 50%;
+  width: var(--bow-w);
+  height: auto;
+  transform: translateY(-22%) rotate(10deg);
+  border-radius: 0;
+  filter: drop-shadow(0 3px 4px #0006);
+}
+
+.gift-banner-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.gift-banner strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.gift-banner a {
+  color: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-underline-offset: 0.25em;
+  white-space: nowrap;
+}
+
+@media (max-width: 650px) {
+  .gift-banner {
+    --bow-x: 1.75rem;
+    --bow-w: 52px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: normal;
+    gap: 0.3rem 0.5rem;
+    padding: 0.6rem 0.9rem 0.6rem 3.75rem;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  .gift-banner-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .gift-banner strong {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 1.02rem;
+  }
+
+  .gift-banner a {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .gift-banner {
+    padding-left: 3.4rem;
+    padding-right: 0.6rem;
+  }
+
+  .gift-banner strong {
+    font-size: 0.92rem;
+  }
+
+  .gift-banner-eyebrow {
+    letter-spacing: 0.04em;
+  }
+
+  .gift-banner a {
+    font-size: 0.68rem;
+  }
+}
