@@ -330,7 +330,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  padding: 1rem 1.25rem 1rem 7rem;
+  padding: 1rem 7rem;
   background: #684139;
   color: #fffaf3;
   text-align: center;
@@ -365,16 +365,10 @@
   letter-spacing: 0.16em;
 }
 
-.gift-banner strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-}
-
 .gift-banner a {
   color: inherit;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
   text-underline-offset: 0.25em;
   white-space: nowrap;
 }
@@ -383,47 +377,18 @@
   .gift-banner {
     --bow-x: 1.75rem;
     --bow-w: 52px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    justify-content: normal;
-    gap: 0.3rem 0.5rem;
-    padding: 0.6rem 0.9rem 0.6rem 3.75rem;
-    text-align: left;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.6rem 3.5rem;
     line-height: 1.4;
   }
 
   .gift-banner-eyebrow {
     font-size: 0.62rem;
     letter-spacing: 0.08em;
-    white-space: nowrap;
   }
 
-  .gift-banner strong {
-    grid-column: 1 / -1;
-    grid-row: 2;
+  .gift-banner a {
     font-size: 1.02rem;
-  }
-
-  .gift-banner a {
-    font-size: 0.76rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .gift-banner {
-    padding-left: 3.4rem;
-    padding-right: 0.6rem;
-  }
-
-  .gift-banner strong {
-    font-size: 0.92rem;
-  }
-
-  .gift-banner-eyebrow {
-    letter-spacing: 0.04em;
-  }
-
-  .gift-banner a {
-    font-size: 0.68rem;
   }
 }
